@@ -1,0 +1,73 @@
+---
+title: "Linear algebra"
+subtitle: "Vectors, products, inverses, and the spectrum"
+---
+
+A decomposition is a rewrite $A = \cdots$ that makes a computation,
+or a geometric fact, cheap. Before the factorisations, the objects
+being multiplied have to be named. The galleries below are from
+[@eeanimation](https://www.instagram.com/eeanimation/).
+
+## Introduction to vectors {#sec-vectors}
+
+A vector is an element of a vector space: you can add two and scale
+one, and you stay in the space. Arrows in the plane are the first
+picture, not the definition. Functions, polynomials, and matrices
+can be vectors too.
+
+Ten-part series,
+[7 September 2026](https://www.instagram.com/p/Dc_K49eDQMh/).
+
+{{< include ../_includes/galleries/Dc_K49eDQMh.qmd >}}
+
+## Vector multiplications {#sec-products}
+
+There is no single “times” for vectors. The symbol decides the
+output: a scalar (dot), a perpendicular vector (cross), a matrix
+(outer), a bivector (wedge), or a multivector (geometric product).
+
+[14 September 2026](https://www.instagram.com/p/DdRMj3FjIGR/).
+
+{{< include ../_includes/galleries/DdRMj3FjIGR.qmd >}}
+
+## Methods of matrix inversion {#sec-inverse}
+
+There is no single best inverse. Gauss–Jordan is pedagogical;
+adjugate is for small symbolic work; LU, QR, Cholesky, and SVD are
+the numerical defaults. Forming $A^{-1}$ is often the wrong move:
+solve $Ax=b$ with a factorisation instead.
+
+[4 September 2026](https://www.instagram.com/p/Dc3ckPsD-uA/).
+
+{{< include ../_includes/galleries/Dc3ckPsD-uA.qmd >}}
+
+## Eigenvalue algorithms {#sec-eigen}
+
+$A v = \lambda v$ is the decomposition $A = X\Lambda X^{-1}$ when $A$
+is diagonalisable. Which *algorithm* you want depends on whether $A$
+is sparse or symmetric, and on whether you need one eigenpair or the
+whole spectrum. Do not form $\det(A-\lambda I)$ as a numerical
+primitive.
+
+[6 September 2026](https://www.instagram.com/p/Dc8mHiMj7og/).
+
+{{< include ../_includes/galleries/Dc8mHiMj7og.qmd >}}
+
+## Factorisations by job {#sec-table}
+
+| Decomposition | Shape / hypotheses | Typical use |
+|---------------|--------------------|-------------|
+| LU (with pivoting) | Square, generic | Solve $Ax=b$; determinant |
+| QR | Full column rank | Least squares; orthonormal bases |
+| Cholesky | Hermitian positive definite | Fast $Ax=b$; covariance |
+| Eigen $A = X\Lambda X^{-1}$ | Square, diagonalisable | Powers, linear ODEs $\dot x = Ax$ |
+| Spectral $A = Q\Lambda Q^\top$ | Symmetric / Hermitian | Axes of a quadratic form |
+| SVD $A = U\Sigma V^\top$ | Any | Rank, condition, PCA, low-rank approx. |
+| Polar | Square, invertible | Closest rotation times stretch |
+| Schur | Square | Numerically stable “eigen” form |
+| Jordan | Square, over $\mathbb C$ | Theoretical canonical form (unstable) |
+
+After you linearise a vector field
+([differential equations](../dynamics/differential-equations.qmd)),
+the local picture is $\dot x = Ax$. The eigen- or Schur form of $A$
+is the dynamical classification.

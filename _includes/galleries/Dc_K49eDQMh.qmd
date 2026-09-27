@@ -1,0 +1,23 @@
+::: {layout-ncol=2}
+
+![What is a vector?](../figures/instagram/eeanimation-Dc_K49eDQMh/01.jpg){group="Dc_K49eDQMh" fig-alt="What is a vector?"}
+
+![Vector operations.](../figures/instagram/eeanimation-Dc_K49eDQMh/02.jpg){group="Dc_K49eDQMh" fig-alt="Vector operations."}
+
+![Vector spaces.](../figures/instagram/eeanimation-Dc_K49eDQMh/03.jpg){group="Dc_K49eDQMh" fig-alt="Vector spaces."}
+
+![Linear combinations and span.](../figures/instagram/eeanimation-Dc_K49eDQMh/04.jpg){group="Dc_K49eDQMh" fig-alt="Linear combinations and span."}
+
+![Linear independence.](../figures/instagram/eeanimation-Dc_K49eDQMh/05.jpg){group="Dc_K49eDQMh" fig-alt="Linear independence."}
+
+![Basis and dimension.](../figures/instagram/eeanimation-Dc_K49eDQMh/06.jpg){group="Dc_K49eDQMh" fig-alt="Basis and dimension."}
+
+![Subspaces.](../figures/instagram/eeanimation-Dc_K49eDQMh/07.jpg){group="Dc_K49eDQMh" fig-alt="Subspaces."}
+
+![Coordinates and change of basis.](../figures/instagram/eeanimation-Dc_K49eDQMh/08.jpg){group="Dc_K49eDQMh" fig-alt="Coordinates and change of basis."}
+
+![Inner products and orthogonality.](../figures/instagram/eeanimation-Dc_K49eDQMh/09.jpg){group="Dc_K49eDQMh" fig-alt="Inner products and orthogonality."}
+
+![Linear transformations.](../figures/instagram/eeanimation-Dc_K49eDQMh/10.jpg){group="Dc_K49eDQMh" fig-alt="Linear transformations."}
+
+:::

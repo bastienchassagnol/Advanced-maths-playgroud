@@ -1,0 +1,43 @@
+::: {layout-ncol=2}
+
+![Nineteen calculus theorems on one sheet.](../figures/instagram/eeanimation-DdMuCr1DyUs/01.jpg){group="DdMuCr1DyUs" fig-alt="Nineteen calculus theorems on one sheet."}
+
+![Squeeze theorem.](../figures/instagram/eeanimation-DdMuCr1DyUs/02.jpg){group="DdMuCr1DyUs" fig-alt="Squeeze theorem."}
+
+![Intermediate value theorem.](../figures/instagram/eeanimation-DdMuCr1DyUs/03.jpg){group="DdMuCr1DyUs" fig-alt="Intermediate value theorem."}
+
+![Extreme value theorem.](../figures/instagram/eeanimation-DdMuCr1DyUs/04.jpg){group="DdMuCr1DyUs" fig-alt="Extreme value theorem."}
+
+![Fermat’s theorem.](../figures/instagram/eeanimation-DdMuCr1DyUs/05.jpg){group="DdMuCr1DyUs" fig-alt="Fermat’s theorem."}
+
+![Rolle’s theorem.](../figures/instagram/eeanimation-DdMuCr1DyUs/06.jpg){group="DdMuCr1DyUs" fig-alt="Rolle’s theorem."}
+
+![Mean value theorem.](../figures/instagram/eeanimation-DdMuCr1DyUs/07.jpg){group="DdMuCr1DyUs" fig-alt="Mean value theorem."}
+
+![Cauchy’s mean value theorem.](../figures/instagram/eeanimation-DdMuCr1DyUs/08.jpg){group="DdMuCr1DyUs" fig-alt="Cauchy’s mean value theorem."}
+
+![Taylor’s theorem.](../figures/instagram/eeanimation-DdMuCr1DyUs/09.jpg){group="DdMuCr1DyUs" fig-alt="Taylor’s theorem."}
+
+![L’Hôpital’s rule.](../figures/instagram/eeanimation-DdMuCr1DyUs/10.jpg){group="DdMuCr1DyUs" fig-alt="L’Hôpital’s rule."}
+
+![Inverse function theorem.](../figures/instagram/eeanimation-DdMuCr1DyUs/11.jpg){group="DdMuCr1DyUs" fig-alt="Inverse function theorem."}
+
+![Implicit function theorem.](../figures/instagram/eeanimation-DdMuCr1DyUs/12.jpg){group="DdMuCr1DyUs" fig-alt="Implicit function theorem."}
+
+![Clairaut’s theorem.](../figures/instagram/eeanimation-DdMuCr1DyUs/13.jpg){group="DdMuCr1DyUs" fig-alt="Clairaut’s theorem."}
+
+![Fundamental theorem of calculus.](../figures/instagram/eeanimation-DdMuCr1DyUs/14.jpg){group="DdMuCr1DyUs" fig-alt="Fundamental theorem of calculus."}
+
+![Integration by parts.](../figures/instagram/eeanimation-DdMuCr1DyUs/15.jpg){group="DdMuCr1DyUs" fig-alt="Integration by parts."}
+
+![Leibniz integral rule.](../figures/instagram/eeanimation-DdMuCr1DyUs/16.jpg){group="DdMuCr1DyUs" fig-alt="Leibniz integral rule."}
+
+![Fubini’s theorem.](../figures/instagram/eeanimation-DdMuCr1DyUs/17.jpg){group="DdMuCr1DyUs" fig-alt="Fubini’s theorem."}
+
+![Green’s theorem.](../figures/instagram/eeanimation-DdMuCr1DyUs/18.jpg){group="DdMuCr1DyUs" fig-alt="Green’s theorem."}
+
+![Stokes’ theorem.](../figures/instagram/eeanimation-DdMuCr1DyUs/19.jpg){group="DdMuCr1DyUs" fig-alt="Stokes’ theorem."}
+
+![Divergence theorem.](../figures/instagram/eeanimation-DdMuCr1DyUs/20.jpg){group="DdMuCr1DyUs" fig-alt="Divergence theorem."}
+
+:::

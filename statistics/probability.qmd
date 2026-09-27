@@ -1,0 +1,79 @@
+---
+title: "Statistics and probability"
+subtitle: "Random variables, conditioning, and limit theorems"
+---
+
+Probability is a calculus of uncertainty with a measure underneath.
+Statistics is the inverse problem: data in, statements about a
+mechanism out. This page keeps the two in one place so the
+vocabulary stays aligned.
+
+## Probability, as a machine {#sec-prob}
+
+A probability space $(\Omega,\mathcal F,\mathbb P)$ is the stage.
+A **random variable** is a measurable map $X:\Omega\to\mathbb R$
+(or $\mathbb R^d$). The law of $X$ is the push-forward
+$\mathbb P\circ X^{-1}$.
+
+Working objects:
+
+- **Expectation** $\mathbb E[X]$ as an integral; linearity does
+  not need independence.
+- **Variance** as the $L^2$ distance to the mean.
+- **Independence** as factorisation of joint laws (or of
+  $\sigma$-algebras).
+- **Conditioning** as “restrict, then renormalise”:
+  $\mathbb P(A\mid B) = \mathbb P(A\cap B)/\mathbb P(B)$ when
+  $\mathbb P(B)>0$, and the conditional-expectation version
+  when $B$ is a $\sigma$-algebra.
+
+Bayes' theorem is that last idea written for a parameter and a
+likelihood.
+
+## The usual limit theorems {#sec-limits}
+
+Three statements do most of the daily work.
+
+1. **Law of large numbers.** Sample means converge (in probability,
+   or almost surely) to $\mathbb E[X]$ when the mean exists.
+2. **Central limit theorem.** Fluctuations of the mean, after
+   $\sqrt n$ scaling, become Gaussian under a second-moment
+   hypothesis.
+3. **Concentration.** Tail bounds (Hoeffding, Bernstein, …) when
+   you need finite-$n$ control, not only an asymptotic shape.
+
+These are analysis theorems about measures. The
+[analysis page](../analysis/calculus-and-complex.qmd) is where
+characteristic functions and inversion live.
+
+## Statistics, as inverse probability {#sec-stats}
+
+A **model** is a family of laws $\{P_\theta\}$. Data $x$ is treated
+as a realisation of $X\sim P_\theta$. Standard jobs:
+
+| Job | Typical object |
+|-----|----------------|
+| Point estimate | MLE, method of moments, Bayes posterior mean |
+| Interval | Confidence set or credible set |
+| Test | $H_0$ versus $H_1$; $p$-value as a tail of a null |
+| Prediction | A law for a new $X$, not only for $\theta$ |
+
+Linear models later reuse
+[matrix decompositions](../linear-algebra/matrix-decompositions.qmd)
+(QR for least squares, SVD for PCA, Cholesky for covariances).
+
+## Dynamic modelling {#sec-dynamic}
+
+Markov chains are the simplest dynamics with noise: the next state
+depends on the present, not on the path that got you there. They
+are classified by time (discrete or continuous), by the size of the
+state space, by transition structure (absorbing, irreducible,
+ergodic), and by whether the state is observed. The types overlap:
+a discrete-time chain can also be finite and absorbing. Hidden
+Markov models keep the chain latent and emit observations.
+
+Carousel from [@eeanimation](https://www.instagram.com/eeanimation/),
+[13 September 2026](https://www.instagram.com/p/DdOnxmeDdZK/).
+
+{{< include ../_includes/galleries/DdOnxmeDdZK.qmd >}}
+

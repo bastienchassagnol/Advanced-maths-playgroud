@@ -1,0 +1,29 @@
+::: {layout-ncol=2}
+
+![Map of dynamical-systems topics (continuous and discrete time).](../figures/instagram/eeanimation-Ddlol_yG6q1/01.jpg){group="Ddlol_yG6q1" fig-alt="Map of dynamical-systems topics (continuous and discrete time)."}
+
+![State-space flows.](../figures/instagram/eeanimation-Ddlol_yG6q1/02.jpg){group="Ddlol_yG6q1" fig-alt="State-space flows."}
+
+![Equilibria and stability.](../figures/instagram/eeanimation-Ddlol_yG6q1/03.jpg){group="Ddlol_yG6q1" fig-alt="Equilibria and stability."}
+
+![Linearisation and eigenvalues.](../figures/instagram/eeanimation-Ddlol_yG6q1/04.jpg){group="Ddlol_yG6q1" fig-alt="Linearisation and eigenvalues."}
+
+![Phase portraits.](../figures/instagram/eeanimation-Ddlol_yG6q1/05.jpg){group="Ddlol_yG6q1" fig-alt="Phase portraits."}
+
+![Limit cycles.](../figures/instagram/eeanimation-Ddlol_yG6q1/06.jpg){group="Ddlol_yG6q1" fig-alt="Limit cycles."}
+
+![Lyapunov methods.](../figures/instagram/eeanimation-Ddlol_yG6q1/07.jpg){group="Ddlol_yG6q1" fig-alt="Lyapunov methods."}
+
+![Bifurcations.](../figures/instagram/eeanimation-Ddlol_yG6q1/08.jpg){group="Ddlol_yG6q1" fig-alt="Bifurcations."}
+
+![Invariant manifolds.](../figures/instagram/eeanimation-Ddlol_yG6q1/09.jpg){group="Ddlol_yG6q1" fig-alt="Invariant manifolds."}
+
+![Poincaré maps.](../figures/instagram/eeanimation-Ddlol_yG6q1/10.jpg){group="Ddlol_yG6q1" fig-alt="Poincaré maps."}
+
+![Attractors.](../figures/instagram/eeanimation-Ddlol_yG6q1/11.jpg){group="Ddlol_yG6q1" fig-alt="Attractors."}
+
+![Chaos and Lyapunov exponents.](../figures/instagram/eeanimation-Ddlol_yG6q1/12.jpg){group="Ddlol_yG6q1" fig-alt="Chaos and Lyapunov exponents."}
+
+![Discrete maps and fractals.](../figures/instagram/eeanimation-Ddlol_yG6q1/13.jpg){group="Ddlol_yG6q1" fig-alt="Discrete maps and fractals."}
+
+:::

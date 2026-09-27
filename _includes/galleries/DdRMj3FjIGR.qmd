@@ -1,0 +1,23 @@
+::: {layout-ncol=2}
+
+![Nine vector products on one sheet.](../figures/instagram/eeanimation-DdRMj3FjIGR/01.jpg){group="DdRMj3FjIGR" fig-alt="Nine vector products on one sheet."}
+
+![Scalar multiplication.](../figures/instagram/eeanimation-DdRMj3FjIGR/02.jpg){group="DdRMj3FjIGR" fig-alt="Scalar multiplication."}
+
+![Dot product.](../figures/instagram/eeanimation-DdRMj3FjIGR/03.jpg){group="DdRMj3FjIGR" fig-alt="Dot product."}
+
+![Cross product.](../figures/instagram/eeanimation-DdRMj3FjIGR/04.jpg){group="DdRMj3FjIGR" fig-alt="Cross product."}
+
+![Outer product.](../figures/instagram/eeanimation-DdRMj3FjIGR/05.jpg){group="DdRMj3FjIGR" fig-alt="Outer product."}
+
+![Hadamard product.](../figures/instagram/eeanimation-DdRMj3FjIGR/06.jpg){group="DdRMj3FjIGR" fig-alt="Hadamard product."}
+
+![Wedge product.](../figures/instagram/eeanimation-DdRMj3FjIGR/07.jpg){group="DdRMj3FjIGR" fig-alt="Wedge product."}
+
+![Geometric product.](../figures/instagram/eeanimation-DdRMj3FjIGR/08.jpg){group="DdRMj3FjIGR" fig-alt="Geometric product."}
+
+![Scalar triple product.](../figures/instagram/eeanimation-DdRMj3FjIGR/09.jpg){group="DdRMj3FjIGR" fig-alt="Scalar triple product."}
+
+![Vector triple product.](../figures/instagram/eeanimation-DdRMj3FjIGR/10.jpg){group="DdRMj3FjIGR" fig-alt="Vector triple product."}
+
+:::

@@ -1,0 +1,113 @@
+# Quarto website — HTML only.
+# Layout inspired by https://github.com/bastienchassagnol/Rag-llm-playground
+# but `project.type: website` rather than book.
+# https://quarto.org/docs/websites/#config-file
+
+# =========================
+# Project scope and build
+# =========================
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+    - dynamics/differential-equations.qmd
+    - linear-algebra/matrix-decompositions.qmd
+    - analysis/calculus-and-complex.qmd
+    - statistics/probability.qmd
+
+# =========================
+# Website metadata and nav
+# =========================
+website:
+  title: "Advanced maths playground"
+  description: >
+    Visual notes on differential equations, linear algebra, analysis,
+    and probability — a website, not a book.
+  site-url: https://bastienchassagnol.github.io/Advanced-maths-playgroud/
+  repo-url: https://github.com/bastienchassagnol/Advanced-maths-playgroud
+  repo-branch: main
+  repo-actions: [edit, issue, source]
+  navbar:
+    background: primary
+    search: true
+    left:
+      - href: index.qmd
+        text: Home
+      - href: dynamics/differential-equations.qmd
+        text: Differential equations
+      - href: linear-algebra/matrix-decompositions.qmd
+        text: Linear algebra
+      - href: analysis/calculus-and-complex.qmd
+        text: Analysis
+      - href: statistics/probability.qmd
+        text: Statistics
+  sidebar:
+    style: docked
+    contents:
+      - section: "Topics"
+        contents:
+          - dynamics/differential-equations.qmd
+          - linear-algebra/matrix-decompositions.qmd
+          - analysis/calculus-and-complex.qmd
+          - statistics/probability.qmd
+  page-footer:
+    center: |
+      Notes built with [Quarto](https://quarto.org).
+      Site structure after
+      [Rag-llm-playground](https://github.com/bastienchassagnol/Rag-llm-playground).
+    background: "#f8f9fa"
+    border: false
+  open-graph: true
+
+# =========================
+# Shared document defaults
+# =========================
+quarto-required: ">= 1.8.0"
+toc: true
+toc-depth: 3
+number-sections: true
+number-depth: 3
+tbl-cap-location: bottom
+fig-align: center
+out-width: "80%"
+fig-dpi: 320
+from: markdown+emoji
+lang: en-GB
+
+# =========================
+# Output formats (HTML only)
+# =========================
+format:
+  html:
+    page-layout: full
+    lightbox: true
+    smooth-scroll: true
+    code-fold: false
+    code-tools: true
+    code-overflow: wrap
+    code-copy: hover
+    crossrefs-hover: true
+    footnotes-hover: true
+    citations-hover: true
+    theme: cosmo
+
+# =========================
+# Execution
+# =========================
+execute:
+  echo: true
+  eval: false
+  message: false
+  warning: false
+  error: false
+  freeze: auto
+
+editor:
+  source: true
+
+license: "GPL-3.0"
+copyright:
+  holder: Bastien Chassagnol
+subject: "Mathematics, dynamics, linear algebra, analysis, probability"
+citation: true

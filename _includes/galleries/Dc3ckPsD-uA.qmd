@@ -1,0 +1,19 @@
+::: {layout-ncol=2}
+
+![Six routes to a matrix inverse, or to solving Ax=b.](../figures/instagram/eeanimation-Dc3ckPsD-uA/01.jpg){group="Dc3ckPsD-uA" fig-alt="Six routes to a matrix inverse, or to solving Ax=b."}
+
+![Gauss–Jordan.](../figures/instagram/eeanimation-Dc3ckPsD-uA/02.jpg){group="Dc3ckPsD-uA" fig-alt="Gauss–Jordan."}
+
+![Adjugate.](../figures/instagram/eeanimation-Dc3ckPsD-uA/03.jpg){group="Dc3ckPsD-uA" fig-alt="Adjugate."}
+
+![LU.](../figures/instagram/eeanimation-Dc3ckPsD-uA/04.jpg){group="Dc3ckPsD-uA" fig-alt="LU."}
+
+![QR.](../figures/instagram/eeanimation-Dc3ckPsD-uA/05.jpg){group="Dc3ckPsD-uA" fig-alt="QR."}
+
+![Cholesky.](../figures/instagram/eeanimation-Dc3ckPsD-uA/06.jpg){group="Dc3ckPsD-uA" fig-alt="Cholesky."}
+
+![SVD and the pseudoinverse.](../figures/instagram/eeanimation-Dc3ckPsD-uA/07.jpg){group="Dc3ckPsD-uA" fig-alt="SVD and the pseudoinverse."}
+
+![Why you often should not form A inverse.](../figures/instagram/eeanimation-Dc3ckPsD-uA/08.jpg){group="Dc3ckPsD-uA" fig-alt="Why you often should not form A inverse."}
+
+:::

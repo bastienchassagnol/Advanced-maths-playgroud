@@ -1,0 +1,62 @@
+---
+title: "Welcome"
+---
+
+These notes are a **website** of visual mathematical tricks: short maps
+of ideas, then figures you can zoom. The layout follows the Quarto
+project pattern used in
+[Rag-llm-playground](https://github.com/bastienchassagnol/Rag-llm-playground)
+(topic folders, shared `_quarto.yml`, freeze for later computations),
+but the project type is a [website](https://quarto.org/docs/websites/#config-file),
+not a book. There is no PDF target.
+
+## How to read this site {#sec-how-to-read}
+
+1. **Differential equations.** Dynamics as ODEs and equivalent
+   mechanical languages: Newton, Lagrange, Hamilton, Hamilton–Jacobi
+   ([Differential equations](dynamics/differential-equations.qmd)).
+2. **Linear algebra.** How a matrix can be factored, and what each
+   factorisation is *for*
+   ([Linear algebra](linear-algebra/matrix-decompositions.qmd)).
+3. **Analysis.** Calculus on the line, then a first look at complex
+   analysis ([Analysis](analysis/calculus-and-complex.qmd)).
+4. **Statistics and probability.** Random variables, conditioning, and
+   the usual limit theorems
+   ([Statistics](statistics/probability.qmd)).
+
+```{mermaid}
+%%| label: fig-site-map
+%%| fig-cap: "Four topic pages hanging off a single website home."
+%%{init: {'theme': 'sandstone'}}%%
+flowchart TD
+  H["Home"] --> D["Differential equations"]
+  H --> L["Linear algebra"]
+  H --> A["Analysis"]
+  H --> S["Statistics and probability"]
+```
+
+## Build locally {#sec-build}
+
+From the repository root:
+
+```bash
+quarto preview         # live HTML
+quarto render          # writes HTML under docs/
+```
+
+Requirements: [Quarto](https://quarto.org/) 1.8 or newer. Computations
+are frozen locally (`_freeze/`) if you later turn `execute.eval` on.
+
+## Repository map {#sec-map}
+
+```text
+.
+├── index.qmd
+├── dynamics/                 # ODEs, dynamical systems
+├── linear-algebra/           # decompositions
+├── analysis/                 # calculus and complex analysis
+├── statistics/               # probability
+├── figures/                  # shared images (including Instagram galleries)
+├── _freeze/                  # local computation cache (commit if used)
+└── docs/                     # rendered HTML (gitignored)
+```

@@ -1,0 +1,21 @@
+::: {layout-ncol=2}
+
+![Branches of mathematical analysis.](../figures/instagram/eeanimation-DcZTXr4AVcB/01.jpg){group="DcZTXr4AVcB" fig-alt="Branches of mathematical analysis."}
+
+![Real analysis.](../figures/instagram/eeanimation-DcZTXr4AVcB/02.jpg){group="DcZTXr4AVcB" fig-alt="Real analysis."}
+
+![Complex analysis.](../figures/instagram/eeanimation-DcZTXr4AVcB/03.jpg){group="DcZTXr4AVcB" fig-alt="Complex analysis."}
+
+![Functional analysis.](../figures/instagram/eeanimation-DcZTXr4AVcB/04.jpg){group="DcZTXr4AVcB" fig-alt="Functional analysis."}
+
+![Harmonic analysis.](../figures/instagram/eeanimation-DcZTXr4AVcB/05.jpg){group="DcZTXr4AVcB" fig-alt="Harmonic analysis."}
+
+![Numerical analysis.](../figures/instagram/eeanimation-DcZTXr4AVcB/06.jpg){group="DcZTXr4AVcB" fig-alt="Numerical analysis."}
+
+![Asymptotic analysis.](../figures/instagram/eeanimation-DcZTXr4AVcB/07.jpg){group="DcZTXr4AVcB" fig-alt="Asymptotic analysis."}
+
+![Variational analysis.](../figures/instagram/eeanimation-DcZTXr4AVcB/08.jpg){group="DcZTXr4AVcB" fig-alt="Variational analysis."}
+
+![Nonlinear analysis.](../figures/instagram/eeanimation-DcZTXr4AVcB/09.jpg){group="DcZTXr4AVcB" fig-alt="Nonlinear analysis."}
+
+:::

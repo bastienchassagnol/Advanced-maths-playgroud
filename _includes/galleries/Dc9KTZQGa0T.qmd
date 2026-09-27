@@ -1,0 +1,29 @@
+::: {layout-ncol=2}
+
+![Map of complex-analysis topics.](../figures/instagram/eeanimation-Dc9KTZQGa0T/01.jpg){group="Dc9KTZQGa0T" fig-alt="Map of complex-analysis topics."}
+
+![The complex plane.](../figures/instagram/eeanimation-Dc9KTZQGa0T/02.jpg){group="Dc9KTZQGa0T" fig-alt="The complex plane."}
+
+![Functions and mappings.](../figures/instagram/eeanimation-Dc9KTZQGa0T/03.jpg){group="Dc9KTZQGa0T" fig-alt="Functions and mappings."}
+
+![Limits and continuity.](../figures/instagram/eeanimation-Dc9KTZQGa0T/04.jpg){group="Dc9KTZQGa0T" fig-alt="Limits and continuity."}
+
+![Complex differentiation.](../figures/instagram/eeanimation-Dc9KTZQGa0T/05.jpg){group="Dc9KTZQGa0T" fig-alt="Complex differentiation."}
+
+![Cauchy–Riemann equations.](../figures/instagram/eeanimation-Dc9KTZQGa0T/06.jpg){group="Dc9KTZQGa0T" fig-alt="Cauchy–Riemann equations."}
+
+![Analytic and harmonic functions.](../figures/instagram/eeanimation-Dc9KTZQGa0T/07.jpg){group="Dc9KTZQGa0T" fig-alt="Analytic and harmonic functions."}
+
+![Contour integration.](../figures/instagram/eeanimation-Dc9KTZQGa0T/08.jpg){group="Dc9KTZQGa0T" fig-alt="Contour integration."}
+
+![Cauchy’s theorem.](../figures/instagram/eeanimation-Dc9KTZQGa0T/09.jpg){group="Dc9KTZQGa0T" fig-alt="Cauchy’s theorem."}
+
+![Cauchy’s integral formula.](../figures/instagram/eeanimation-Dc9KTZQGa0T/10.jpg){group="Dc9KTZQGa0T" fig-alt="Cauchy’s integral formula."}
+
+![Taylor and Laurent series.](../figures/instagram/eeanimation-Dc9KTZQGa0T/11.jpg){group="Dc9KTZQGa0T" fig-alt="Taylor and Laurent series."}
+
+![Singularities and residues.](../figures/instagram/eeanimation-Dc9KTZQGa0T/12.jpg){group="Dc9KTZQGa0T" fig-alt="Singularities and residues."}
+
+![Conformal mapping.](../figures/instagram/eeanimation-Dc9KTZQGa0T/13.jpg){group="Dc9KTZQGa0T" fig-alt="Conformal mapping."}
+
+:::

@@ -1,0 +1,5 @@
+::: {layout-ncol=2}
+
+![Eigenvalue algorithms: match the method to the matrix.](../figures/instagram/eeanimation-Dc8mHiMj7og/01.jpg){group="Dc8mHiMj7og" fig-alt="Eigenvalue algorithms: match the method to the matrix."}
+
+:::

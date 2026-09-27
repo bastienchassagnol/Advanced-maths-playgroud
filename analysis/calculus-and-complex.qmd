@@ -1,0 +1,57 @@
+---
+title: "Analysis"
+subtitle: "Calculus on the line, then a first look at $\\mathbb C$"
+---
+
+Analysis is the study of limits, and of the operations that survive
+them: derivatives, integrals, infinite sums. The three galleries
+below, from [@eeanimation](https://www.instagram.com/eeanimation/),
+are the introduction to this page: branches of the subject, the
+standard calculus theorems, then complex analysis in more detail.
+
+## Branches of mathematical analysis {#sec-intro}
+
+Real analysis builds the foundations. Complex analysis studies
+functions of $z = x+iy$. Functional analysis moves to infinite
+dimensions; harmonic analysis reads frequency; numerical and
+asymptotic analysis approximate; variational and nonlinear analysis
+handle extrema and $F(x)=0$.
+
+[23 August 2026](https://www.instagram.com/p/DcZTXr4AVcB/).
+
+{{< include ../_includes/galleries/DcZTXr4AVcB.qmd >}}
+
+## Calculus theorems {#sec-theorems}
+
+A useful habit: every interchange of a limit and an operation is a
+theorem. The series runs from the squeeze theorem through the
+divergence theorem — hypotheses first, formula second.
+
+[12 September 2026](https://www.instagram.com/p/DdMuCr1DyUs/).
+
+{{< include ../_includes/galleries/DdMuCr1DyUs.qmd >}}
+
+## Complex analysis {#sec-complex}
+
+A function $f:\Omega\subset\mathbb C\to\mathbb C$ is **holomorphic**
+if it is complex-differentiable on an open set. That single
+requirement is much stronger than real differentiability in two
+variables: Cauchy–Riemann, power series, contour integrals,
+residues, conformal maps.
+
+[6 September 2026](https://www.instagram.com/p/Dc9KTZQGa0T/).
+
+{{< include ../_includes/galleries/Dc9KTZQGa0T.qmd >}}
+
+## Bridges to the rest of the site {#sec-bridges}
+
+- Linear ODEs with constant coefficients are solved by
+  characteristic polynomials — that is
+  [linear algebra](../linear-algebra/matrix-decompositions.qmd)
+  over $\mathbb C$.
+- Generating functions and characteristic functions in
+  [probability](../statistics/probability.qmd) are analytic
+  objects first, probabilistic ones second.
+- Hamilton–Jacobi theory on the
+  [dynamics page](../dynamics/differential-equations.qmd) is a
+  first-order nonlinear PDE.

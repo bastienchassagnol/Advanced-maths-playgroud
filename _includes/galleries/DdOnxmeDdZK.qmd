@@ -1,0 +1,21 @@
+::: {layout-ncol=2}
+
+![Types of Markov chain (not mutually exclusive).](../figures/instagram/eeanimation-DdOnxmeDdZK/01.jpg){group="DdOnxmeDdZK" fig-alt="Types of Markov chain (not mutually exclusive)."}
+
+![Discrete time.](../figures/instagram/eeanimation-DdOnxmeDdZK/02.jpg){group="DdOnxmeDdZK" fig-alt="Discrete time."}
+
+![Continuous time.](../figures/instagram/eeanimation-DdOnxmeDdZK/03.jpg){group="DdOnxmeDdZK" fig-alt="Continuous time."}
+
+![Finite state space.](../figures/instagram/eeanimation-DdOnxmeDdZK/04.jpg){group="DdOnxmeDdZK" fig-alt="Finite state space."}
+
+![Countable state space.](../figures/instagram/eeanimation-DdOnxmeDdZK/05.jpg){group="DdOnxmeDdZK" fig-alt="Countable state space."}
+
+![Absorbing chains.](../figures/instagram/eeanimation-DdOnxmeDdZK/06.jpg){group="DdOnxmeDdZK" fig-alt="Absorbing chains."}
+
+![Irreducible chains.](../figures/instagram/eeanimation-DdOnxmeDdZK/07.jpg){group="DdOnxmeDdZK" fig-alt="Irreducible chains."}
+
+![Ergodic chains.](../figures/instagram/eeanimation-DdOnxmeDdZK/08.jpg){group="DdOnxmeDdZK" fig-alt="Ergodic chains."}
+
+![Hidden Markov models.](../figures/instagram/eeanimation-DdOnxmeDdZK/09.jpg){group="DdOnxmeDdZK" fig-alt="Hidden Markov models."}
+
+:::
