@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Differential equations – Advanced maths playground</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b6478ca729ce9f11d4754a03971bcfa2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="Differential equations – Advanced maths playground">
+<meta property="og:description" content="Dynamics, and four languages for classical motion">
+<meta property="og:image" content="https://bastienchassagnol.github.io/Advanced-maths-playgroud/figures/instagram/eeanimation-Ddlol_yG6q1/01.jpg">
+<meta property="og:site_name" content="Advanced maths playground">
+<meta property="og:image:alt" content="Map of dynamical-systems topics (continuous and discrete time).">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Advanced maths playground</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../dynamics/differential-equations.html" aria-current="page"> 
+<span class="menu-text">Differential equations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../linear-algebra/matrix-decompositions.html"> 
+<span class="menu-text">Linear algebra</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../analysis/calculus-and-complex.html"> 
+<span class="menu-text">Analysis</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../statistics/probability.html"> 
+<span class="menu-text">Statistics</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dynamics/differential-equations.html">Topics</a></li><li class="breadcrumb-item"><a href="../dynamics/differential-equations.html">Differential equations</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dynamics/differential-equations.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Differential equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../linear-algebra/matrix-decompositions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear algebra</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analysis/calculus-and-complex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../statistics/probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics and probability</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-dynamical" id="toc-sec-dynamical" class="nav-link active" data-scroll-target="#sec-dynamical"><span class="header-section-number">1</span> Topics of dynamical systems</a></li>
+  <li><a href="#sec-state" id="toc-sec-state" class="nav-link" data-scroll-target="#sec-state"><span class="header-section-number">2</span> What we keep track of</a></li>
+  <li><a href="#sec-pendulum" id="toc-sec-pendulum" class="nav-link" data-scroll-target="#sec-pendulum"><span class="header-section-number">3</span> Worked motif: the simple pendulum</a></li>
+  <li><a href="#sec-gallery" id="toc-sec-gallery" class="nav-link" data-scroll-target="#sec-gallery"><span class="header-section-number">4</span> Four formulations of classical mechanics</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/bastienchassagnol/Advanced-maths-playgroud/edit/main/dynamics/differential-equations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/bastienchassagnol/Advanced-maths-playgroud/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/bastienchassagnol/Advanced-maths-playgroud/blob/main/dynamics/differential-equations.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dynamics/differential-equations.html">Topics</a></li><li class="breadcrumb-item"><a href="../dynamics/differential-equations.html">Differential equations</a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Differential equations</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Dynamics, and four languages for classical motion</p>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>A differential equation is a constraint on a function and its derivatives. In mechanics that function is a trajectory. The same curve can be written as a second-order ODE in position, as a stationary-action problem, as a first-order flow on phase space, or as a first-order nonlinear PDE for a generating function.</p>
+<p>This page is a map, not a textbook. Two galleries from <a href="https://www.instagram.com/eeanimation/"><span class="citation" data-cites="eeanimation">@eeanimation</span></a> carry the pictures: a tour of dynamical-systems language, then four equivalent formulations of classical motion.</p>
+<section id="sec-dynamical" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="sec-dynamical"><span class="header-section-number">1</span> Topics of dynamical systems</h2>
+<p>Continuous time is <span class="math inline">\(\dot x = f(x,t)\)</span>. Discrete time is <span class="math inline">\(x_{k+1} = F(x_k)\)</span>. The same vocabulary — equilibria, linearisation, Lyapunov functions, bifurcations, Poincaré maps, chaos — asks whether trajectories converge, oscillate, or become sensitive to the initial state.</p>
+<p>Carousel from <a href="https://www.instagram.com/p/Ddlol_yG6q1/">22 September 2026</a>. Click a figure to page through the lightbox.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Ddlol_yG6q1/01.jpg" class="lightbox" data-gallery="Ddlol_yG6q1" title="Map of dynamical-systems topics (continuous and discrete time)."><img src="../figures/instagram/eeanimation-Ddlol_yG6q1/01.jpg" class="img-fluid figure-img" alt="Map of dynamical-systems topics (continuous and discrete time)."></a></p>
+<figcaption>Map of dynamical-systems topics (continuous and discrete time).</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Ddlol_yG6q1/02.jpg" class="lightbox" data-gallery="Ddlol_yG6q1" title="State-space flows."><img src="../figures/instagram/eeanimation-Ddlol_yG6q1/02.jpg" class="img-fluid figure-img" alt="State-space flows."></a></p>
+<figcaption>State-space flows.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Ddlol_yG6q1/03.jpg" class="lightbox" data-gallery="Ddlol_yG6q1" title="Equilibria and stability."><img src="../figures/instagram/eeanimation-Ddlol_yG6q1/03.jpg" class="img-fluid figure-img" alt="Equilibria and stability."></a></p>
+<figcaption>Equilibria and stability.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Ddlol_yG6q1/04.jpg" class="lightbox" data-gallery="Ddlol_yG6q1" title="Linearisation and eigenvalues."><img src="../figures/instagram/eeanimation-Ddlol_yG6q1/04.jpg" class="img-fluid figure-img" alt="Linearisation and eigenvalues."></a></p>
+<figcaption>Linearisation and eigenvalues.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Ddlol_yG6q1/05.jpg" class="lightbox" data-gallery="Ddlol_yG6q1" title="Phase portraits."><img src="../figures/instagram/eeanimation-Ddlol_yG6q1/05.jpg" class="img-fluid figure-img" alt="Phase portraits."></a></p>
+<figcaption>Phase portraits.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Ddlol_yG6q1/06.jpg" class="lightbox" data-gallery="Ddlol_yG6q1" title="Limit cycles."><img src="../figures/instagram/eeanimation-Ddlol_yG6q1/06.jpg" class="img-fluid figure-img" alt="Limit cycles."></a></p>
+<figcaption>Limit cycles.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Ddlol_yG6q1/07.jpg" class="lightbox" data-gallery="Ddlol_yG6q1" title="Lyapunov methods."><img src="../figures/instagram/eeanimation-Ddlol_yG6q1/07.jpg" class="img-fluid figure-img" alt="Lyapunov methods."></a></p>
+<figcaption>Lyapunov methods.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Ddlol_yG6q1/08.jpg" class="lightbox" data-gallery="Ddlol_yG6q1" title="Bifurcations."><img src="../figures/instagram/eeanimation-Ddlol_yG6q1/08.jpg" class="img-fluid figure-img" alt="Bifurcations."></a></p>
+<figcaption>Bifurcations.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Ddlol_yG6q1/09.jpg" class="lightbox" data-gallery="Ddlol_yG6q1" title="Invariant manifolds."><img src="../figures/instagram/eeanimation-Ddlol_yG6q1/09.jpg" class="img-fluid figure-img" alt="Invariant manifolds."></a></p>
+<figcaption>Invariant manifolds.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Ddlol_yG6q1/10.jpg" class="lightbox" data-gallery="Ddlol_yG6q1" title="Poincaré maps."><img src="../figures/instagram/eeanimation-Ddlol_yG6q1/10.jpg" class="img-fluid figure-img" alt="Poincaré maps."></a></p>
+<figcaption>Poincaré maps.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Ddlol_yG6q1/11.jpg" class="lightbox" data-gallery="Ddlol_yG6q1" title="Attractors."><img src="../figures/instagram/eeanimation-Ddlol_yG6q1/11.jpg" class="img-fluid figure-img" alt="Attractors."></a></p>
+<figcaption>Attractors.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Ddlol_yG6q1/12.jpg" class="lightbox" data-gallery="Ddlol_yG6q1" title="Chaos and Lyapunov exponents."><img src="../figures/instagram/eeanimation-Ddlol_yG6q1/12.jpg" class="img-fluid figure-img" alt="Chaos and Lyapunov exponents."></a></p>
+<figcaption>Chaos and Lyapunov exponents.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Ddlol_yG6q1/13.jpg" class="lightbox" data-gallery="Ddlol_yG6q1" title="Discrete maps and fractals."><img src="../figures/instagram/eeanimation-Ddlol_yG6q1/13.jpg" class="img-fluid figure-img" alt="Discrete maps and fractals."></a></p>
+<figcaption>Discrete maps and fractals.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-state" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sec-state"><span class="header-section-number">2</span> What we keep track of</h2>
+<table class="table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 22%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Language</th>
+<th>State</th>
+<th>Typical equation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Newtonian</td>
+<td>position <span class="math inline">\(\mathbf r\)</span>, velocity <span class="math inline">\(\dot{\mathbf r}\)</span></td>
+<td><span class="math inline">\(\sum \mathbf F = m\ddot{\mathbf r}\)</span></td>
+</tr>
+<tr class="even">
+<td>Lagrangian</td>
+<td>generalised coordinates <span class="math inline">\(q_i\)</span>, velocities <span class="math inline">\(\dot q_i\)</span></td>
+<td>Euler–Lagrange</td>
+</tr>
+<tr class="odd">
+<td>Hamiltonian</td>
+<td>coordinates <span class="math inline">\(q_i\)</span>, momenta <span class="math inline">\(p_i\)</span></td>
+<td>Hamilton’s equations</td>
+</tr>
+<tr class="even">
+<td>Hamilton–Jacobi</td>
+<td>principal function <span class="math inline">\(S(q,t)\)</span></td>
+<td>Hamilton–Jacobi PDE</td>
+</tr>
+</tbody>
+</table>
+<p>When the modelling assumptions match (holonomic constraints, a regular Lagrangian, forces that the chosen language can express), these formulations predict the <strong>same</strong> classical trajectories. They do not emphasise the same structure.</p>
+</section>
+<section id="sec-pendulum" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="sec-pendulum"><span class="header-section-number">3</span> Worked motif: the simple pendulum</h2>
+<p>A mass <span class="math inline">\(m\)</span> on a massless rod of length <span class="math inline">\(\ell\)</span>, angle <span class="math inline">\(\theta\)</span> from the downward vertical. One generalised coordinate is enough.</p>
+<p>Newtonian (tangential balance):</p>
+<p><span class="math display">\[
+\ddot\theta + \frac{g}{\ell}\sin\theta = 0.
+\]</span></p>
+<p>Lagrangian <span class="math inline">\(L = T - V\)</span> with <span class="math inline">\(T = \tfrac12 m\ell^2\dot\theta^2\)</span> and <span class="math inline">\(V = mg\ell(1-\cos\theta)\)</span> yields the same ODE from the Euler–Lagrange equation. The Hamiltonian picture replaces <span class="math inline">\(\dot\theta\)</span> by <span class="math inline">\(p_\theta = \partial L/\partial\dot\theta\)</span> and reads the motion as a curve in the <span class="math inline">\((\theta,p_\theta)\)</span> plane.</p>
+</section>
+<section id="sec-gallery" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="sec-gallery"><span class="header-section-number">4</span> Four formulations of classical mechanics</h2>
+<p>Five slides from <a href="https://www.instagram.com/p/DdG5U50D_Hv/">10 September 2026</a>. The post caption is the readable source; the slides drop spaces.</p>
+<blockquote class="blockquote">
+<p>Classical mechanics can be expressed through several equivalent mathematical formulations. Each predicts the same physical trajectories when its assumptions apply and the system is modelled consistently—but each emphasizes a different structure.</p>
+<p>Newtonian mechanics begins with forces: <span class="math inline">\(\sum \mathbf F = m\ddot{\mathbf r}\)</span>.</p>
+<p>Lagrangian mechanics uses generalized coordinates, energy, and stationary action: <span class="math inline">\(L=T-V\)</span>, <span class="math inline">\(\frac{d}{dt}\bigl(\frac{\partial L}{\partial\dot q_i}\bigr)
+-\frac{\partial L}{\partial q_i}=Q_i^{(\mathrm{nc})}\)</span>.</p>
+<p>Hamiltonian mechanics replaces generalized velocities with canonical momenta and describes motion as phase-space flow: <span class="math inline">\(\dot q_i=\frac{\partial H}{\partial p_i}\)</span>, <span class="math inline">\(\dot p_i=-\frac{\partial H}{\partial q_i}\)</span>.</p>
+<p>Hamilton–Jacobi mechanics encodes the dynamics in Hamilton’s principal function <span class="math inline">\(S(q,t)\)</span>: <span class="math inline">\(\frac{\partial S}{\partial t}
++H\bigl(q,\frac{\partial S}{\partial q},t\bigr)=0\)</span>.</p>
+</blockquote>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-classical-mechanics/01-four-formulations.jpg" class="lightbox" data-gallery="eeanimation-classical" title="Overview: Newtonian, Lagrangian, Hamiltonian, and Hamilton–Jacobi side by side."><img src="../figures/instagram/eeanimation-classical-mechanics/01-four-formulations.jpg" class="img-fluid figure-img" alt="Four-column comparison of classical-mechanics formulations."></a></p>
+<figcaption>Overview: Newtonian, Lagrangian, Hamiltonian, and Hamilton–Jacobi side by side.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-classical-mechanics/02-newtonian.jpg" class="lightbox" data-gallery="eeanimation-classical" title="Newtonian mechanics: forces determine acceleration; pendulum as a free-body problem."><img src="../figures/instagram/eeanimation-classical-mechanics/02-newtonian.jpg" class="img-fluid figure-img" alt="Newtonian slide with Newton's second law and a simple pendulum."></a></p>
+<figcaption>Newtonian mechanics: forces determine acceleration; pendulum as a free-body problem.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-classical-mechanics/03-lagrangian.jpg" class="lightbox" data-gallery="eeanimation-classical" title="Lagrangian mechanics: energy, action, and the Euler–Lagrange equation."><img src="../figures/instagram/eeanimation-classical-mechanics/03-lagrangian.jpg" class="img-fluid figure-img" alt="Lagrangian slide with action principle and pendulum Lagrangian."></a></p>
+<figcaption>Lagrangian mechanics: energy, action, and the Euler–Lagrange equation.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-classical-mechanics/04-hamiltonian.jpg" class="lightbox" data-gallery="eeanimation-classical" title="Hamiltonian mechanics: Legendre transform and flow in phase space."><img src="../figures/instagram/eeanimation-classical-mechanics/04-hamiltonian.jpg" class="img-fluid figure-img" alt="Hamiltonian slide with phase portrait of a harmonic oscillator."></a></p>
+<figcaption>Hamiltonian mechanics: Legendre transform and flow in phase space.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-classical-mechanics/05-hamilton-jacobi.jpg" class="lightbox" data-gallery="eeanimation-classical" title="Hamilton–Jacobi: one nonlinear PDE for a generating function."><img src="../figures/instagram/eeanimation-classical-mechanics/05-hamilton-jacobi.jpg" class="img-fluid figure-img" alt="Hamilton–Jacobi slide with constant-S surfaces and trajectories."></a></p>
+<figcaption>Hamilton–Jacobi: one nonlinear PDE for a generating function.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Linearisation of a vector field is a <a href="../linear-algebra/matrix-decompositions.html">linear-algebra</a> job: the local picture is <span class="math inline">\(\dot x = Ax\)</span>.</p>
+
+
+<!-- -->
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>GPL-3.0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{untitled,
+  author = {},
+  title = {Differential Equations},
+  url = {https://bastienchassagnol.github.io/Advanced-maths-playgroud/dynamics/differential-equations.html},
+  langid = {en-GB}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-untitled" class="csl-entry quarto-appendix-citeas" role="listitem">
+<span>“Differential Equations.”</span> n.d. <a href="https://bastienchassagnol.github.io/Advanced-maths-playgroud/dynamics/differential-equations.html">https://bastienchassagnol.github.io/Advanced-maths-playgroud/dynamics/differential-equations.html</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bastienchassagnol\.github\.io\/Advanced-maths-playgroud\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Differential equations"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Dynamics, and four languages for classical motion"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>A differential equation is a constraint on a function and its</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>derivatives. In mechanics that function is a trajectory. The same</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>curve can be written as a second-order ODE in position, as a</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>stationary-action problem, as a first-order flow on phase space, or</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>as a first-order nonlinear PDE for a generating function.</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>This page is a map, not a textbook. Two galleries from</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@eeanimation</span><span class="co">](https://www.instagram.com/eeanimation/)</span> carry the</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>pictures: a tour of dynamical-systems language, then four equivalent</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>formulations of classical motion.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Topics of dynamical systems {#sec-dynamical}</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>Continuous time is $\dot x = f(x,t)$. Discrete time is</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>$x_{k+1} = F(x_k)$. The same vocabulary — equilibria, linearisation,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>Lyapunov functions, bifurcations, Poincaré maps, chaos — asks whether</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>trajectories converge, oscillate, or become sensitive to the initial</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>state.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Carousel from</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">22 September 2026</span><span class="co">](https://www.instagram.com/p/Ddlol_yG6q1/)</span>.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>Click a figure to page through the lightbox.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/galleries/Ddlol_yG6q1.qmd &gt;}}</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## What we keep track of {#sec-state}</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Language <span class="pp">|</span> State <span class="pp">|</span> Typical equation <span class="pp">|</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|--------|------------------|</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Newtonian <span class="pp">|</span> position $\mathbf r$, velocity $\dot{\mathbf r}$ <span class="pp">|</span> $\sum \mathbf F = m\ddot{\mathbf r}$ <span class="pp">|</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Lagrangian <span class="pp">|</span> generalised coordinates $q_i$, velocities $\dot q_i$ <span class="pp">|</span> Euler–Lagrange <span class="pp">|</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Hamiltonian <span class="pp">|</span> coordinates $q_i$, momenta $p_i$ <span class="pp">|</span> Hamilton's equations <span class="pp">|</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Hamilton–Jacobi <span class="pp">|</span> principal function $S(q,t)$ <span class="pp">|</span> Hamilton–Jacobi PDE <span class="pp">|</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>When the modelling assumptions match (holonomic constraints, a</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>regular Lagrangian, forces that the chosen language can express),</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>these formulations predict the **same** classical trajectories. They</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>do not emphasise the same structure.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked motif: the simple pendulum {#sec-pendulum}</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>A mass $m$ on a massless rod of length $\ell$, angle $\theta$ from</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>the downward vertical. One generalised coordinate is enough.</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>Newtonian (tangential balance):</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>\ddot\theta + \frac{g}{\ell}\sin\theta = 0.</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>Lagrangian $L = T - V$ with $T = \tfrac12 m\ell^2\dot\theta^2$ and</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>$V = mg\ell(1-\cos\theta)$ yields the same ODE from the</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>Euler–Lagrange equation. The Hamiltonian picture replaces</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>$\dot\theta$ by $p_\theta = \partial L/\partial\dot\theta$ and</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>reads the motion as a curve in the $(\theta,p_\theta)$ plane.</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="fu">## Four formulations of classical mechanics {#sec-gallery}</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>Five slides from</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">10 September 2026</span><span class="co">](https://www.instagram.com/p/DdG5U50D_Hv/)</span>.</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>The post caption is the readable source; the slides drop spaces.</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Classical mechanics can be expressed through several equivalent</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; mathematical formulations. Each predicts the same physical</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; trajectories when its assumptions apply and the system is modelled</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; consistently—but each emphasizes a different structure.</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Newtonian mechanics begins with forces:</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; $\sum \mathbf F = m\ddot{\mathbf r}$.</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Lagrangian mechanics uses generalized coordinates, energy, and</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; stationary action:</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; $L=T-V$,</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; $\frac{d}{dt}\bigl(\frac{\partial L}{\partial\dot q_i}\bigr)</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; -\frac{\partial L}{\partial q_i}=Q_i^{(\mathrm{nc})}$.</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Hamiltonian mechanics replaces generalized velocities with</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; canonical momenta and describes motion as phase-space flow:</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; $\dot q_i=\frac{\partial H}{\partial p_i}$,</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; $\dot p_i=-\frac{\partial H}{\partial q_i}$.</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Hamilton–Jacobi mechanics encodes the dynamics in Hamilton’s</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; principal function $S(q,t)$:</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; $\frac{\partial S}{\partial t}</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; +H\bigl(q,\frac{\partial S}{\partial q},t\bigr)=0$.</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol=2}</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="al">![Overview: Newtonian, Lagrangian, Hamiltonian, and Hamilton–Jacobi side by side.](../figures/instagram/eeanimation-classical-mechanics/01-four-formulations.jpg)</span>{group="eeanimation-classical" fig-alt="Four-column comparison of classical-mechanics formulations."}</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="al">![Newtonian mechanics: forces determine acceleration; pendulum as a free-body problem.](../figures/instagram/eeanimation-classical-mechanics/02-newtonian.jpg)</span>{group="eeanimation-classical" fig-alt="Newtonian slide with Newton's second law and a simple pendulum."}</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="al">![Lagrangian mechanics: energy, action, and the Euler–Lagrange equation.](../figures/instagram/eeanimation-classical-mechanics/03-lagrangian.jpg)</span>{group="eeanimation-classical" fig-alt="Lagrangian slide with action principle and pendulum Lagrangian."}</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="al">![Hamiltonian mechanics: Legendre transform and flow in phase space.](../figures/instagram/eeanimation-classical-mechanics/04-hamiltonian.jpg)</span>{group="eeanimation-classical" fig-alt="Hamiltonian slide with phase portrait of a harmonic oscillator."}</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="al">![Hamilton–Jacobi: one nonlinear PDE for a generating function.](../figures/instagram/eeanimation-classical-mechanics/05-hamilton-jacobi.jpg)</span>{group="eeanimation-classical" fig-alt="Hamilton–Jacobi slide with constant-S surfaces and trajectories."}</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>Linearisation of a vector field is a</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">linear-algebra</span><span class="co">](../linear-algebra/matrix-decompositions.qmd)</span> job:</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>the local picture is $\dot x = Ax$.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Notes built with <a href="https://quarto.org">Quarto</a>. Site structure after <a href="https://github.com/bastienchassagnol/Rag-llm-playground">Rag-llm-playground</a>.</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/bastienchassagnol/Advanced-maths-playgroud/edit/main/dynamics/differential-equations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/bastienchassagnol/Advanced-maths-playgroud/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/bastienchassagnol/Advanced-maths-playgroud/blob/main/dynamics/differential-equations.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

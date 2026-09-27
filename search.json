@@ -1,0 +1,282 @@
+[
+  {
+    "objectID": "statistics/probability.html",
+    "href": "statistics/probability.html",
+    "title": "Statistics and probability",
+    "section": "",
+    "text": "Probability is a calculus of uncertainty with a measure underneath. Statistics is the inverse problem: data in, statements about a mechanism out. This page keeps the two in one place so the vocabulary stays aligned.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Statistics and probability"
+    ]
+  },
+  {
+    "objectID": "statistics/probability.html#sec-prob",
+    "href": "statistics/probability.html#sec-prob",
+    "title": "Statistics and probability",
+    "section": "1 Probability, as a machine",
+    "text": "1 Probability, as a machine\nA probability space \\((\\Omega,\\mathcal F,\\mathbb P)\\) is the stage. A random variable is a measurable map \\(X:\\Omega\\to\\mathbb R\\) (or \\(\\mathbb R^d\\)). The law of \\(X\\) is the push-forward \\(\\mathbb P\\circ X^{-1}\\).\nWorking objects:\n\nExpectation \\(\\mathbb E[X]\\) as an integral; linearity does not need independence.\nVariance as the \\(L^2\\) distance to the mean.\nIndependence as factorisation of joint laws (or of \\(\\sigma\\)-algebras).\nConditioning as “restrict, then renormalise”: \\(\\mathbb P(A\\mid B) = \\mathbb P(A\\cap B)/\\mathbb P(B)\\) when \\(\\mathbb P(B)&gt;0\\), and the conditional-expectation version when \\(B\\) is a \\(\\sigma\\)-algebra.\n\nBayes’ theorem is that last idea written for a parameter and a likelihood.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Statistics and probability"
+    ]
+  },
+  {
+    "objectID": "statistics/probability.html#sec-limits",
+    "href": "statistics/probability.html#sec-limits",
+    "title": "Statistics and probability",
+    "section": "2 The usual limit theorems",
+    "text": "2 The usual limit theorems\nThree statements do most of the daily work.\n\nLaw of large numbers. Sample means converge (in probability, or almost surely) to \\(\\mathbb E[X]\\) when the mean exists.\nCentral limit theorem. Fluctuations of the mean, after \\(\\sqrt n\\) scaling, become Gaussian under a second-moment hypothesis.\nConcentration. Tail bounds (Hoeffding, Bernstein, …) when you need finite-\\(n\\) control, not only an asymptotic shape.\n\nThese are analysis theorems about measures. The analysis page is where characteristic functions and inversion live.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Statistics and probability"
+    ]
+  },
+  {
+    "objectID": "statistics/probability.html#sec-stats",
+    "href": "statistics/probability.html#sec-stats",
+    "title": "Statistics and probability",
+    "section": "3 Statistics, as inverse probability",
+    "text": "3 Statistics, as inverse probability\nA model is a family of laws \\(\\{P_\\theta\\}\\). Data \\(x\\) is treated as a realisation of \\(X\\sim P_\\theta\\). Standard jobs:\n\n\n\nJob\nTypical object\n\n\n\n\nPoint estimate\nMLE, method of moments, Bayes posterior mean\n\n\nInterval\nConfidence set or credible set\n\n\nTest\n\\(H_0\\) versus \\(H_1\\); \\(p\\)-value as a tail of a null\n\n\nPrediction\nA law for a new \\(X\\), not only for \\(\\theta\\)\n\n\n\nLinear models later reuse matrix decompositions (QR for least squares, SVD for PCA, Cholesky for covariances).",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Statistics and probability"
+    ]
+  },
+  {
+    "objectID": "statistics/probability.html#sec-dynamic",
+    "href": "statistics/probability.html#sec-dynamic",
+    "title": "Statistics and probability",
+    "section": "4 Dynamic modelling",
+    "text": "4 Dynamic modelling\nMarkov chains are the simplest dynamics with noise: the next state depends on the present, not on the path that got you there. They are classified by time (discrete or continuous), by the size of the state space, by transition structure (absorbing, irreducible, ergodic), and by whether the state is observed. The types overlap: a discrete-time chain can also be finite and absorbing. Hidden Markov models keep the chain latent and emit observations.\nCarousel from @eeanimation, 13 September 2026.\n\n\n\n\n\n\nTypes of Markov chain (not mutually exclusive).\n\n\n\n\n\n\n\nDiscrete time.\n\n\n\n\n\n\n\n\n\nContinuous time.\n\n\n\n\n\n\n\nFinite state space.\n\n\n\n\n\n\n\n\n\nCountable state space.\n\n\n\n\n\n\n\nAbsorbing chains.\n\n\n\n\n\n\n\n\n\nIrreducible chains.\n\n\n\n\n\n\n\nErgodic chains.\n\n\n\n\n\n\n\n\n\nHidden Markov models.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Statistics and probability"
+    ]
+  },
+  {
+    "objectID": "linear-algebra/matrix-decompositions.html",
+    "href": "linear-algebra/matrix-decompositions.html",
+    "title": "Linear algebra",
+    "section": "",
+    "text": "A decomposition is a rewrite \\(A = \\cdots\\) that makes a computation, or a geometric fact, cheap. Before the factorisations, the objects being multiplied have to be named. The galleries below are from @eeanimation.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Linear algebra"
+    ]
+  },
+  {
+    "objectID": "linear-algebra/matrix-decompositions.html#sec-vectors",
+    "href": "linear-algebra/matrix-decompositions.html#sec-vectors",
+    "title": "Linear algebra",
+    "section": "1 Introduction to vectors",
+    "text": "1 Introduction to vectors\nA vector is an element of a vector space: you can add two and scale one, and you stay in the space. Arrows in the plane are the first picture, not the definition. Functions, polynomials, and matrices can be vectors too.\nTen-part series, 7 September 2026.\n\n\n\n\n\n\nWhat is a vector?\n\n\n\n\n\n\n\nVector operations.\n\n\n\n\n\n\n\n\n\nVector spaces.\n\n\n\n\n\n\n\nLinear combinations and span.\n\n\n\n\n\n\n\n\n\nLinear independence.\n\n\n\n\n\n\n\nBasis and dimension.\n\n\n\n\n\n\n\n\n\nSubspaces.\n\n\n\n\n\n\n\nCoordinates and change of basis.\n\n\n\n\n\n\n\n\n\nInner products and orthogonality.\n\n\n\n\n\n\n\nLinear transformations.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Linear algebra"
+    ]
+  },
+  {
+    "objectID": "linear-algebra/matrix-decompositions.html#sec-products",
+    "href": "linear-algebra/matrix-decompositions.html#sec-products",
+    "title": "Linear algebra",
+    "section": "2 Vector multiplications",
+    "text": "2 Vector multiplications\nThere is no single “times” for vectors. The symbol decides the output: a scalar (dot), a perpendicular vector (cross), a matrix (outer), a bivector (wedge), or a multivector (geometric product).\n14 September 2026.\n\n\n\n\n\n\nNine vector products on one sheet.\n\n\n\n\n\n\n\nScalar multiplication.\n\n\n\n\n\n\n\n\n\nDot product.\n\n\n\n\n\n\n\nCross product.\n\n\n\n\n\n\n\n\n\nOuter product.\n\n\n\n\n\n\n\nHadamard product.\n\n\n\n\n\n\n\n\n\nWedge product.\n\n\n\n\n\n\n\nGeometric product.\n\n\n\n\n\n\n\n\n\nScalar triple product.\n\n\n\n\n\n\n\nVector triple product.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Linear algebra"
+    ]
+  },
+  {
+    "objectID": "linear-algebra/matrix-decompositions.html#sec-inverse",
+    "href": "linear-algebra/matrix-decompositions.html#sec-inverse",
+    "title": "Linear algebra",
+    "section": "3 Methods of matrix inversion",
+    "text": "3 Methods of matrix inversion\nThere is no single best inverse. Gauss–Jordan is pedagogical; adjugate is for small symbolic work; LU, QR, Cholesky, and SVD are the numerical defaults. Forming \\(A^{-1}\\) is often the wrong move: solve \\(Ax=b\\) with a factorisation instead.\n4 September 2026.\n\n\n\n\n\n\nSix routes to a matrix inverse, or to solving Ax=b.\n\n\n\n\n\n\n\nGauss–Jordan.\n\n\n\n\n\n\n\n\n\nAdjugate.\n\n\n\n\n\n\n\nLU.\n\n\n\n\n\n\n\n\n\nQR.\n\n\n\n\n\n\n\nCholesky.\n\n\n\n\n\n\n\n\n\nSVD and the pseudoinverse.\n\n\n\n\n\n\n\nWhy you often should not form A inverse.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Linear algebra"
+    ]
+  },
+  {
+    "objectID": "linear-algebra/matrix-decompositions.html#sec-eigen",
+    "href": "linear-algebra/matrix-decompositions.html#sec-eigen",
+    "title": "Linear algebra",
+    "section": "4 Eigenvalue algorithms",
+    "text": "4 Eigenvalue algorithms\n\\(A v = \\lambda v\\) is the decomposition \\(A = X\\Lambda X^{-1}\\) when \\(A\\) is diagonalisable. Which algorithm you want depends on whether \\(A\\) is sparse or symmetric, and on whether you need one eigenpair or the whole spectrum. Do not form \\(\\det(A-\\lambda I)\\) as a numerical primitive.\n6 September 2026.\n\n\n\n\n\n\nEigenvalue algorithms: match the method to the matrix.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Linear algebra"
+    ]
+  },
+  {
+    "objectID": "linear-algebra/matrix-decompositions.html#sec-table",
+    "href": "linear-algebra/matrix-decompositions.html#sec-table",
+    "title": "Linear algebra",
+    "section": "5 Factorisations by job",
+    "text": "5 Factorisations by job\n\n\n\n\n\n\n\n\nDecomposition\nShape / hypotheses\nTypical use\n\n\n\n\nLU (with pivoting)\nSquare, generic\nSolve \\(Ax=b\\); determinant\n\n\nQR\nFull column rank\nLeast squares; orthonormal bases\n\n\nCholesky\nHermitian positive definite\nFast \\(Ax=b\\); covariance\n\n\nEigen \\(A = X\\Lambda X^{-1}\\)\nSquare, diagonalisable\nPowers, linear ODEs \\(\\dot x = Ax\\)\n\n\nSpectral \\(A = Q\\Lambda Q^\\top\\)\nSymmetric / Hermitian\nAxes of a quadratic form\n\n\nSVD \\(A = U\\Sigma V^\\top\\)\nAny\nRank, condition, PCA, low-rank approx.\n\n\nPolar\nSquare, invertible\nClosest rotation times stretch\n\n\nSchur\nSquare\nNumerically stable “eigen” form\n\n\nJordan\nSquare, over \\(\\mathbb C\\)\nTheoretical canonical form (unstable)\n\n\n\nAfter you linearise a vector field (differential equations), the local picture is \\(\\dot x = Ax\\). The eigen- or Schur form of \\(A\\) is the dynamical classification.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Linear algebra"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "These notes are a website of visual mathematical tricks: short maps of ideas, then figures you can zoom. The layout follows the Quarto project pattern used in Rag-llm-playground (topic folders, shared _quarto.yml, freeze for later computations), but the project type is a website, not a book. There is no PDF target."
+  },
+  {
+    "objectID": "index.html#sec-how-to-read",
+    "href": "index.html#sec-how-to-read",
+    "title": "Welcome",
+    "section": "1 How to read this site",
+    "text": "1 How to read this site\n\nDifferential equations. Dynamics as ODEs and equivalent mechanical languages: Newton, Lagrange, Hamilton, Hamilton–Jacobi (Differential equations).\nLinear algebra. How a matrix can be factored, and what each factorisation is for (Linear algebra).\nAnalysis. Calculus on the line, then a first look at complex analysis (Analysis).\nStatistics and probability. Random variables, conditioning, and the usual limit theorems (Statistics).\n\n\n%%{init: {'theme': 'sandstone'}}%%\nflowchart TD\n  H[\"Home\"] --&gt; D[\"Differential equations\"]\n  H --&gt; L[\"Linear algebra\"]\n  H --&gt; A[\"Analysis\"]\n  H --&gt; S[\"Statistics and probability\"]\n\n\n\n\n\n\n\n\n\nFigure 1: Four topic pages hanging off a single website home."
+  },
+  {
+    "objectID": "index.html#sec-build",
+    "href": "index.html#sec-build",
+    "title": "Welcome",
+    "section": "2 Build locally",
+    "text": "2 Build locally\nFrom the repository root:\nquarto preview         # live HTML\nquarto render          # writes HTML under docs/\nRequirements: Quarto 1.8 or newer. Computations are frozen locally (_freeze/) if you later turn execute.eval on."
+  },
+  {
+    "objectID": "index.html#sec-map",
+    "href": "index.html#sec-map",
+    "title": "Welcome",
+    "section": "3 Repository map",
+    "text": "3 Repository map\n.\n├── index.qmd\n├── dynamics/                 # ODEs, dynamical systems\n├── linear-algebra/           # decompositions\n├── analysis/                 # calculus and complex analysis\n├── statistics/               # probability\n├── figures/                  # shared images (including Instagram galleries)\n├── _freeze/                  # local computation cache (commit if used)\n└── docs/                     # rendered HTML (gitignored)"
+  },
+  {
+    "objectID": "dynamics/differential-equations.html",
+    "href": "dynamics/differential-equations.html",
+    "title": "Differential equations",
+    "section": "",
+    "text": "A differential equation is a constraint on a function and its derivatives. In mechanics that function is a trajectory. The same curve can be written as a second-order ODE in position, as a stationary-action problem, as a first-order flow on phase space, or as a first-order nonlinear PDE for a generating function.\nThis page is a map, not a textbook. Two galleries from @eeanimation carry the pictures: a tour of dynamical-systems language, then four equivalent formulations of classical motion.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Differential equations"
+    ]
+  },
+  {
+    "objectID": "dynamics/differential-equations.html#sec-dynamical",
+    "href": "dynamics/differential-equations.html#sec-dynamical",
+    "title": "Differential equations",
+    "section": "1 Topics of dynamical systems",
+    "text": "1 Topics of dynamical systems\nContinuous time is \\(\\dot x = f(x,t)\\). Discrete time is \\(x_{k+1} = F(x_k)\\). The same vocabulary — equilibria, linearisation, Lyapunov functions, bifurcations, Poincaré maps, chaos — asks whether trajectories converge, oscillate, or become sensitive to the initial state.\nCarousel from 22 September 2026. Click a figure to page through the lightbox.\n\n\n\n\n\n\nMap of dynamical-systems topics (continuous and discrete time).\n\n\n\n\n\n\n\nState-space flows.\n\n\n\n\n\n\n\n\n\nEquilibria and stability.\n\n\n\n\n\n\n\nLinearisation and eigenvalues.\n\n\n\n\n\n\n\n\n\nPhase portraits.\n\n\n\n\n\n\n\nLimit cycles.\n\n\n\n\n\n\n\n\n\nLyapunov methods.\n\n\n\n\n\n\n\nBifurcations.\n\n\n\n\n\n\n\n\n\nInvariant manifolds.\n\n\n\n\n\n\n\nPoincaré maps.\n\n\n\n\n\n\n\n\n\nAttractors.\n\n\n\n\n\n\n\nChaos and Lyapunov exponents.\n\n\n\n\n\n\n\n\n\nDiscrete maps and fractals.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Differential equations"
+    ]
+  },
+  {
+    "objectID": "dynamics/differential-equations.html#sec-state",
+    "href": "dynamics/differential-equations.html#sec-state",
+    "title": "Differential equations",
+    "section": "2 What we keep track of",
+    "text": "2 What we keep track of\n\n\n\n\n\n\n\n\nLanguage\nState\nTypical equation\n\n\n\n\nNewtonian\nposition \\(\\mathbf r\\), velocity \\(\\dot{\\mathbf r}\\)\n\\(\\sum \\mathbf F = m\\ddot{\\mathbf r}\\)\n\n\nLagrangian\ngeneralised coordinates \\(q_i\\), velocities \\(\\dot q_i\\)\nEuler–Lagrange\n\n\nHamiltonian\ncoordinates \\(q_i\\), momenta \\(p_i\\)\nHamilton’s equations\n\n\nHamilton–Jacobi\nprincipal function \\(S(q,t)\\)\nHamilton–Jacobi PDE\n\n\n\nWhen the modelling assumptions match (holonomic constraints, a regular Lagrangian, forces that the chosen language can express), these formulations predict the same classical trajectories. They do not emphasise the same structure.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Differential equations"
+    ]
+  },
+  {
+    "objectID": "dynamics/differential-equations.html#sec-pendulum",
+    "href": "dynamics/differential-equations.html#sec-pendulum",
+    "title": "Differential equations",
+    "section": "3 Worked motif: the simple pendulum",
+    "text": "3 Worked motif: the simple pendulum\nA mass \\(m\\) on a massless rod of length \\(\\ell\\), angle \\(\\theta\\) from the downward vertical. One generalised coordinate is enough.\nNewtonian (tangential balance):\n\\[\n\\ddot\\theta + \\frac{g}{\\ell}\\sin\\theta = 0.\n\\]\nLagrangian \\(L = T - V\\) with \\(T = \\tfrac12 m\\ell^2\\dot\\theta^2\\) and \\(V = mg\\ell(1-\\cos\\theta)\\) yields the same ODE from the Euler–Lagrange equation. The Hamiltonian picture replaces \\(\\dot\\theta\\) by \\(p_\\theta = \\partial L/\\partial\\dot\\theta\\) and reads the motion as a curve in the \\((\\theta,p_\\theta)\\) plane.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Differential equations"
+    ]
+  },
+  {
+    "objectID": "dynamics/differential-equations.html#sec-gallery",
+    "href": "dynamics/differential-equations.html#sec-gallery",
+    "title": "Differential equations",
+    "section": "4 Four formulations of classical mechanics",
+    "text": "4 Four formulations of classical mechanics\nFive slides from 10 September 2026. The post caption is the readable source; the slides drop spaces.\n\nClassical mechanics can be expressed through several equivalent mathematical formulations. Each predicts the same physical trajectories when its assumptions apply and the system is modelled consistently—but each emphasizes a different structure.\nNewtonian mechanics begins with forces: \\(\\sum \\mathbf F = m\\ddot{\\mathbf r}\\).\nLagrangian mechanics uses generalized coordinates, energy, and stationary action: \\(L=T-V\\), \\(\\frac{d}{dt}\\bigl(\\frac{\\partial L}{\\partial\\dot q_i}\\bigr)\n-\\frac{\\partial L}{\\partial q_i}=Q_i^{(\\mathrm{nc})}\\).\nHamiltonian mechanics replaces generalized velocities with canonical momenta and describes motion as phase-space flow: \\(\\dot q_i=\\frac{\\partial H}{\\partial p_i}\\), \\(\\dot p_i=-\\frac{\\partial H}{\\partial q_i}\\).\nHamilton–Jacobi mechanics encodes the dynamics in Hamilton’s principal function \\(S(q,t)\\): \\(\\frac{\\partial S}{\\partial t}\n+H\\bigl(q,\\frac{\\partial S}{\\partial q},t\\bigr)=0\\).\n\n\n\n\n\n\n\nOverview: Newtonian, Lagrangian, Hamiltonian, and Hamilton–Jacobi side by side.\n\n\n\n\n\n\n\nNewtonian mechanics: forces determine acceleration; pendulum as a free-body problem.\n\n\n\n\n\n\n\n\n\nLagrangian mechanics: energy, action, and the Euler–Lagrange equation.\n\n\n\n\n\n\n\nHamiltonian mechanics: Legendre transform and flow in phase space.\n\n\n\n\n\n\n\n\n\nHamilton–Jacobi: one nonlinear PDE for a generating function.\n\n\n\n\n\nLinearisation of a vector field is a linear-algebra job: the local picture is \\(\\dot x = Ax\\).",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Differential equations"
+    ]
+  },
+  {
+    "objectID": "analysis/calculus-and-complex.html",
+    "href": "analysis/calculus-and-complex.html",
+    "title": "Analysis",
+    "section": "",
+    "text": "Analysis is the study of limits, and of the operations that survive them: derivatives, integrals, infinite sums. The three galleries below, from @eeanimation, are the introduction to this page: branches of the subject, the standard calculus theorems, then complex analysis in more detail.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Analysis"
+    ]
+  },
+  {
+    "objectID": "analysis/calculus-and-complex.html#sec-intro",
+    "href": "analysis/calculus-and-complex.html#sec-intro",
+    "title": "Analysis",
+    "section": "1 Branches of mathematical analysis",
+    "text": "1 Branches of mathematical analysis\nReal analysis builds the foundations. Complex analysis studies functions of \\(z = x+iy\\). Functional analysis moves to infinite dimensions; harmonic analysis reads frequency; numerical and asymptotic analysis approximate; variational and nonlinear analysis handle extrema and \\(F(x)=0\\).\n23 August 2026.\n\n\n\n\n\n\nBranches of mathematical analysis.\n\n\n\n\n\n\n\nReal analysis.\n\n\n\n\n\n\n\n\n\nComplex analysis.\n\n\n\n\n\n\n\nFunctional analysis.\n\n\n\n\n\n\n\n\n\nHarmonic analysis.\n\n\n\n\n\n\n\nNumerical analysis.\n\n\n\n\n\n\n\n\n\nAsymptotic analysis.\n\n\n\n\n\n\n\nVariational analysis.\n\n\n\n\n\n\n\n\n\nNonlinear analysis.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Analysis"
+    ]
+  },
+  {
+    "objectID": "analysis/calculus-and-complex.html#sec-theorems",
+    "href": "analysis/calculus-and-complex.html#sec-theorems",
+    "title": "Analysis",
+    "section": "2 Calculus theorems",
+    "text": "2 Calculus theorems\nA useful habit: every interchange of a limit and an operation is a theorem. The series runs from the squeeze theorem through the divergence theorem — hypotheses first, formula second.\n12 September 2026.\n\n\n\n\n\n\nNineteen calculus theorems on one sheet.\n\n\n\n\n\n\n\nSqueeze theorem.\n\n\n\n\n\n\n\n\n\nIntermediate value theorem.\n\n\n\n\n\n\n\nExtreme value theorem.\n\n\n\n\n\n\n\n\n\nFermat’s theorem.\n\n\n\n\n\n\n\nRolle’s theorem.\n\n\n\n\n\n\n\n\n\nMean value theorem.\n\n\n\n\n\n\n\nCauchy’s mean value theorem.\n\n\n\n\n\n\n\n\n\nTaylor’s theorem.\n\n\n\n\n\n\n\nL’Hôpital’s rule.\n\n\n\n\n\n\n\n\n\nInverse function theorem.\n\n\n\n\n\n\n\nImplicit function theorem.\n\n\n\n\n\n\n\n\n\nClairaut’s theorem.\n\n\n\n\n\n\n\nFundamental theorem of calculus.\n\n\n\n\n\n\n\n\n\nIntegration by parts.\n\n\n\n\n\n\n\nLeibniz integral rule.\n\n\n\n\n\n\n\n\n\nFubini’s theorem.\n\n\n\n\n\n\n\nGreen’s theorem.\n\n\n\n\n\n\n\n\n\nStokes’ theorem.\n\n\n\n\n\n\n\nDivergence theorem.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Analysis"
+    ]
+  },
+  {
+    "objectID": "analysis/calculus-and-complex.html#sec-complex",
+    "href": "analysis/calculus-and-complex.html#sec-complex",
+    "title": "Analysis",
+    "section": "3 Complex analysis",
+    "text": "3 Complex analysis\nA function \\(f:\\Omega\\subset\\mathbb C\\to\\mathbb C\\) is holomorphic if it is complex-differentiable on an open set. That single requirement is much stronger than real differentiability in two variables: Cauchy–Riemann, power series, contour integrals, residues, conformal maps.\n6 September 2026.\n\n\n\n\n\n\nMap of complex-analysis topics.\n\n\n\n\n\n\n\nThe complex plane.\n\n\n\n\n\n\n\n\n\nFunctions and mappings.\n\n\n\n\n\n\n\nLimits and continuity.\n\n\n\n\n\n\n\n\n\nComplex differentiation.\n\n\n\n\n\n\n\nCauchy–Riemann equations.\n\n\n\n\n\n\n\n\n\nAnalytic and harmonic functions.\n\n\n\n\n\n\n\nContour integration.\n\n\n\n\n\n\n\n\n\nCauchy’s theorem.\n\n\n\n\n\n\n\nCauchy’s integral formula.\n\n\n\n\n\n\n\n\n\nTaylor and Laurent series.\n\n\n\n\n\n\n\nSingularities and residues.\n\n\n\n\n\n\n\n\n\nConformal mapping.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Analysis"
+    ]
+  },
+  {
+    "objectID": "analysis/calculus-and-complex.html#sec-bridges",
+    "href": "analysis/calculus-and-complex.html#sec-bridges",
+    "title": "Analysis",
+    "section": "4 Bridges to the rest of the site",
+    "text": "4 Bridges to the rest of the site\n\nLinear ODEs with constant coefficients are solved by characteristic polynomials — that is linear algebra over \\(\\mathbb C\\).\nGenerating functions and characteristic functions in probability are analytic objects first, probabilistic ones second.\nHamilton–Jacobi theory on the dynamics page is a first-order nonlinear PDE.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Analysis"
+    ]
+  }
+]
