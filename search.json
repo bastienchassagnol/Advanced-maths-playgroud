@@ -220,6 +220,18 @@
     ]
   },
   {
+    "objectID": "dynamics/differential-equations.html#sec-ito",
+    "href": "dynamics/differential-equations.html#sec-ito",
+    "title": "Differential equations",
+    "section": "5 Stochastic differentials",
+    "text": "5 Stochastic differentials\nThe ODEs above have paths you can differentiate. The same page of notes that introduces a discrete fair game also writes what that game becomes once the steps shrink to a continuous path. The source is Eulerism, 26 July 2026, stills 8 and 9 of the carousel (printed pages 7–8, “Brownian motion and Itô’s formula”). The ten public stills are collected as eulerism-martingales-DbP8rv6iOtB.pdf. That file is the Instagram carousel, not a separately published PDF: the post asks readers to comment for the original. Vocabulary for conditional expectation sits on the probability page.\nA discrete process adapted to \\(\\mathcal F_n\\) is a martingale when \\(\\mathbb E[X_{n+1}\\mid\\mathcal F_n] = X_n\\) and \\(\\mathbb E[|X_n|]&lt;\\infty\\). Standard Brownian motion \\((B_t)_{t\\ge 0}\\) is the continuous version the notes use: \\(B_0=0\\), continuous paths, increments independent of the past, and\n\\[\nB_t - B_s \\sim \\mathcal N(0, t-s), \\qquad\n\\mathbb E[B_t\\mid\\mathcal F_s] = B_s \\quad (s&lt;t).\n\\]\nThe path is continuous everywhere and differentiable nowhere. Its quadratic variation does not vanish. For a partition of \\([0,t]\\) whose mesh goes to zero,\n\\[\n\\sum_{i=1}^{n}(B_{t_i}-B_{t_{i-1}})^2 \\longrightarrow t\n\\]\nin probability. The notes’ multiplication table is \\(dB_t\\cdot dB_t = dt\\), while \\(dt\\cdot dt = dB_t\\cdot dt = 0\\). The compensated process \\(M_t = B_t^2 - t\\) is again a martingale: the \\(t\\) you subtract is exactly the quadratic variation.\nOrdinary calculus stops at first order because, on a smooth path, the second-order term is negligible. For a twice continuously differentiable \\(f\\), Itô’s formula on these notes keeps it:\n\\[\ndf(B_t) = f'(B_t)\\,dB_t + \\tfrac12 f''(B_t)\\,dt,\n\\]\nor, in integral form,\n\\[\nf(B_t) = f(B_0) + \\int_0^t f'(B_s)\\,dB_s\n+ \\tfrac12\\int_0^t f''(B_s)\\,ds.\n\\]\nThe stochastic integral is itself a martingale, so the \\(\\tfrac12 f''\\,dt\\) term is what keeps \\(f(B_t)\\) a fair game when \\(f\\) is not linear. That is the chain rule for \\(\\dot x = f(x,t)\\) once the driver is Brownian motion rather than a differentiable curve.\nThe notes’ stock example is geometric Brownian motion \\(S_t = S_0\\exp(\\mu t + \\sigma B_t)\\). The boxed formula above is for a function of \\(B_t\\) alone. The example also differentiates the explicit factor \\(e^{\\mu t}\\), and that ordinary time derivative supplies the \\(\\mu S_t\\,dt\\) term. Together,\n\\[\ndS_t = \\Bigl(\\mu + \\tfrac12\\sigma^2\\Bigr) S_t\\,dt + \\sigma S_t\\,dB_t.\n\\]\nThe extra \\(\\tfrac12\\sigma^2\\) drift is the Itô correction. It is not visible to the classical chain rule.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Differential equations"
+    ]
+  },
+  {
     "objectID": "analysis/calculus-and-complex.html",
     "href": "analysis/calculus-and-complex.html",
     "title": "Analysis",
