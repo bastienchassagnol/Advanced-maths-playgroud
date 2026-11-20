@@ -108,11 +108,23 @@
     ]
   },
   {
+    "objectID": "linear-algebra/matrix-decompositions.html#sec-oblique",
+    "href": "linear-algebra/matrix-decompositions.html#sec-oblique",
+    "title": "Linear algebra",
+    "section": "4 Free families that are not orthogonal",
+    "text": "4 Free families that are not orthogonal\nA family is free when it is linearly independent: the only linear combination that gives zero has every coefficient zero. Orthogonality is a stronger demand. Two vectors can meet at \\(60^\\circ\\) and still be a basis. Every point is then\n\\[\n\\mathbf r = u\\,\\mathbf a_1 + v\\,\\mathbf a_2,\n\\]\nwith unique coordinates \\((u,v)\\), even though \\(\\mathbf a_1\\cdot\\mathbf a_2 \\neq 0\\).\nWhat fails is Pythagoras on those coordinates. Lengths and angles need the Gram matrix \\(g_{ij} = \\mathbf a_i\\cdot\\mathbf a_j\\). For a unit basis at angle \\(\\theta\\),\n\\[\n\\mathbf r\\cdot\\mathbf s = \\mathbf u^\\top g\\mathbf v, \\qquad\nds^2 = du^2 + 2\\cos\\theta\\,du\\,dv + dv^2.\n\\]\nThe slides’ worked vector \\(\\mathbf r = 2\\mathbf a_1 + \\mathbf a_2\\) has squared length \\(4 + 1 + 2\\cdot 2\\cdot 1\\cdot\\cos 60^\\circ = 7\\), not \\(4+1\\). The reciprocal basis, defined by \\(\\mathbf a^i\\cdot\\mathbf a_j = \\delta^i_j\\), is what reads the oblique components back off: \\(u = \\mathbf r\\cdot\\mathbf a^1\\). Contravariant components are the expansion coefficients; covariant components are the dot products with the primal basis. They agree only when \\(g = I\\).\nTen stills from EE Animations, 19 November 2026. The caption: independent directions need not meet at \\(90^\\circ\\); the geometry is the same once the basis is accounted for.\n\n\n\n\n\n\nCartesian axes at 90 degrees beside an oblique basis at 60 degrees. A point is still r = u a1 + v a2.\n\n\n\n\n\n\n\nOblique coordinates (2, 1) for r = 2 a1 + a2, read along parallel grid lines.\n\n\n\n\n\n\n\n\n\nChange of coordinates between the oblique frame and Cartesian coordinates. The vector is unchanged.\n\n\n\n\n\n\n\nThe Gram matrix of a unit 60-degree basis, and the norm of r = 2 a1 + a2.\n\n\n\n\n\n\n\n\n\nLine element and angle from the metric. Orthogonal axes are the special case cos theta = 0.\n\n\n\n\n\n\n\nReciprocal basis defined by a^i dot a_j = delta^i_j, used to read oblique components.\n\n\n\n\n\n\n\n\n\nContravariant components (2, 1) and covariant components (5/2, 2) of the same vector.\n\n\n\n\n\n\n\nA curved grid whose tangent vectors are not orthogonal once u is positive.\n\n\n\n\n\n\n\n\n\nGradient along the reciprocal basis, and area sqrt(det g) du dv.\n\n\n\n\n\n\n\nSkew coordinates in a crystal lattice, a sheared mesh, and a finite-element map.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Linear algebra"
+    ]
+  },
+  {
     "objectID": "linear-algebra/matrix-decompositions.html#sec-eigen",
     "href": "linear-algebra/matrix-decompositions.html#sec-eigen",
     "title": "Linear algebra",
-    "section": "4 Eigenvalue algorithms",
-    "text": "4 Eigenvalue algorithms\n\\(A v = \\lambda v\\) is the decomposition \\(A = X\\Lambda X^{-1}\\) when \\(A\\) is diagonalisable. Which algorithm you want depends on whether \\(A\\) is sparse or symmetric, and on whether you need one eigenpair or the whole spectrum. Do not form \\(\\det(A-\\lambda I)\\) as a numerical primitive.\n6 September 2026.\n\n\n\n\n\n\nEigenvalue algorithms: match the method to the matrix.",
+    "section": "5 Eigenvalue algorithms",
+    "text": "5 Eigenvalue algorithms\n\\(A v = \\lambda v\\) is the decomposition \\(A = X\\Lambda X^{-1}\\) when \\(A\\) is diagonalisable. Which algorithm you want depends on whether \\(A\\) is sparse or symmetric, and on whether you need one eigenpair or the whole spectrum. Do not form \\(\\det(A-\\lambda I)\\) as a numerical primitive.\n6 September 2026.\n\n\n\n\n\n\nEigenvalue algorithms: match the method to the matrix.",
     "crumbs": [
       "Home",
       "Topics",
@@ -123,8 +135,8 @@
     "objectID": "linear-algebra/matrix-decompositions.html#sec-table",
     "href": "linear-algebra/matrix-decompositions.html#sec-table",
     "title": "Linear algebra",
-    "section": "5 Factorisations by job",
-    "text": "5 Factorisations by job\n\n\n\n\n\n\n\n\nDecomposition\nShape / hypotheses\nTypical use\n\n\n\n\nLU (with pivoting)\nSquare, generic\nSolve \\(Ax=b\\); determinant\n\n\nQR\nFull column rank\nLeast squares; orthonormal bases\n\n\nCholesky\nHermitian positive definite\nFast \\(Ax=b\\); covariance\n\n\nEigen \\(A = X\\Lambda X^{-1}\\)\nSquare, diagonalisable\nPowers, linear ODEs \\(\\dot x = Ax\\)\n\n\nSpectral \\(A = Q\\Lambda Q^\\top\\)\nSymmetric / Hermitian\nAxes of a quadratic form\n\n\nSVD \\(A = U\\Sigma V^\\top\\)\nAny\nRank, condition, PCA, low-rank approx.\n\n\nPolar\nSquare, invertible\nClosest rotation times stretch\n\n\nSchur\nSquare\nNumerically stable “eigen” form\n\n\nJordan\nSquare, over \\(\\mathbb C\\)\nTheoretical canonical form (unstable)\n\n\n\nAfter you linearise a vector field (differential equations), the local picture is \\(\\dot x = Ax\\). The eigen- or Schur form of \\(A\\) is the dynamical classification.",
+    "section": "6 Factorisations by job",
+    "text": "6 Factorisations by job\n\n\n\n\n\n\n\n\nDecomposition\nShape / hypotheses\nTypical use\n\n\n\n\nLU (with pivoting)\nSquare, generic\nSolve \\(Ax=b\\); determinant\n\n\nQR\nFull column rank\nLeast squares; orthonormal bases\n\n\nCholesky\nHermitian positive definite\nFast \\(Ax=b\\); covariance\n\n\nEigen \\(A = X\\Lambda X^{-1}\\)\nSquare, diagonalisable\nPowers, linear ODEs \\(\\dot x = Ax\\)\n\n\nSpectral \\(A = Q\\Lambda Q^\\top\\)\nSymmetric / Hermitian\nAxes of a quadratic form\n\n\nSVD \\(A = U\\Sigma V^\\top\\)\nAny\nRank, condition, PCA, low-rank approx.\n\n\nPolar\nSquare, invertible\nClosest rotation times stretch\n\n\nSchur\nSquare\nNumerically stable “eigen” form\n\n\nJordan\nSquare, over \\(\\mathbb C\\)\nTheoretical canonical form (unstable)\n\n\n\nAfter you linearise a vector field (differential equations), the local picture is \\(\\dot x = Ax\\). The eigen- or Schur form of \\(A\\) is the dynamical classification.",
     "crumbs": [
       "Home",
       "Topics",

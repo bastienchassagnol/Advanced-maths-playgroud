@@ -258,8 +258,9 @@ window.Quarto = {
   <li><a href="#sec-vectors" id="toc-sec-vectors" class="nav-link active" data-scroll-target="#sec-vectors"><span class="header-section-number">1</span> Introduction to vectors</a></li>
   <li><a href="#sec-products" id="toc-sec-products" class="nav-link" data-scroll-target="#sec-products"><span class="header-section-number">2</span> Vector multiplications</a></li>
   <li><a href="#sec-inverse" id="toc-sec-inverse" class="nav-link" data-scroll-target="#sec-inverse"><span class="header-section-number">3</span> Methods of matrix inversion</a></li>
-  <li><a href="#sec-eigen" id="toc-sec-eigen" class="nav-link" data-scroll-target="#sec-eigen"><span class="header-section-number">4</span> Eigenvalue algorithms</a></li>
-  <li><a href="#sec-table" id="toc-sec-table" class="nav-link" data-scroll-target="#sec-table"><span class="header-section-number">5</span> Factorisations by job</a></li>
+  <li><a href="#sec-oblique" id="toc-sec-oblique" class="nav-link" data-scroll-target="#sec-oblique"><span class="header-section-number">4</span> Free families that are not orthogonal</a></li>
+  <li><a href="#sec-eigen" id="toc-sec-eigen" class="nav-link" data-scroll-target="#sec-eigen"><span class="header-section-number">5</span> Eigenvalue algorithms</a></li>
+  <li><a href="#sec-table" id="toc-sec-table" class="nav-link" data-scroll-target="#sec-table"><span class="header-section-number">6</span> Factorisations by job</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/bastienchassagnol/Advanced-maths-playgroud/edit/main/linear-algebra/matrix-decompositions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/bastienchassagnol/Advanced-maths-playgroud/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/bastienchassagnol/Advanced-maths-playgroud/blob/main/linear-algebra/matrix-decompositions.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -560,8 +561,115 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="sec-eigen" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="sec-eigen"><span class="header-section-number">4</span> Eigenvalue algorithms</h2>
+<section id="sec-oblique" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="sec-oblique"><span class="header-section-number">4</span> Free families that are not orthogonal</h2>
+<p>A family is <strong>free</strong> when it is linearly independent: the only linear combination that gives zero has every coefficient zero. Orthogonality is a stronger demand. Two vectors can meet at <span class="math inline">\(60^\circ\)</span> and still be a basis. Every point is then</p>
+<p><span class="math display">\[
+\mathbf r = u\,\mathbf a_1 + v\,\mathbf a_2,
+\]</span></p>
+<p>with unique coordinates <span class="math inline">\((u,v)\)</span>, even though <span class="math inline">\(\mathbf a_1\cdot\mathbf a_2 \neq 0\)</span>.</p>
+<p>What fails is Pythagoras on those coordinates. Lengths and angles need the Gram matrix <span class="math inline">\(g_{ij} = \mathbf a_i\cdot\mathbf a_j\)</span>. For a unit basis at angle <span class="math inline">\(\theta\)</span>,</p>
+<p><span class="math display">\[
+\mathbf r\cdot\mathbf s = \mathbf u^\top g\mathbf v, \qquad
+ds^2 = du^2 + 2\cos\theta\,du\,dv + dv^2.
+\]</span></p>
+<p>The slides’ worked vector <span class="math inline">\(\mathbf r = 2\mathbf a_1 + \mathbf a_2\)</span> has squared length <span class="math inline">\(4 + 1 + 2\cdot 2\cdot 1\cdot\cos 60^\circ = 7\)</span>, not <span class="math inline">\(4+1\)</span>. The reciprocal basis, defined by <span class="math inline">\(\mathbf a^i\cdot\mathbf a_j = \delta^i_j\)</span>, is what reads the oblique components back off: <span class="math inline">\(u = \mathbf r\cdot\mathbf a^1\)</span>. Contravariant components are the expansion coefficients; covariant components are the dot products with the primal basis. They agree only when <span class="math inline">\(g = I\)</span>.</p>
+<p>Ten stills from <a href="https://www.instagram.com/p/Df7PttMBQlv/">EE Animations, 19 November 2026</a>. The caption: independent directions need not meet at <span class="math inline">\(90^\circ\)</span>; the geometry is the same once the basis is accounted for.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Df7PttMBQlv/01.jpg" class="lightbox" data-gallery="Df7PttMBQlv" title="Cartesian axes at 90 degrees beside an oblique basis at 60 degrees. A point is still r = u a1 + v a2."><img src="../figures/instagram/eeanimation-Df7PttMBQlv/01.jpg" class="img-fluid figure-img" alt="Cartesian grid next to an oblique grid at 60 degrees, with r equal to u a1 plus v a2."></a></p>
+<figcaption>Cartesian axes at 90 degrees beside an oblique basis at 60 degrees. A point is still r = u a1 + v a2.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Df7PttMBQlv/02.jpg" class="lightbox" data-gallery="Df7PttMBQlv" title="Oblique coordinates (2, 1) for r = 2 a1 + a2, read along parallel grid lines."><img src="../figures/instagram/eeanimation-Df7PttMBQlv/02.jpg" class="img-fluid figure-img" alt="Oblique parallelogram with basis a1 = (1, 0) and a2 = (1/2, sqrt(3)/2)."></a></p>
+<figcaption>Oblique coordinates (2, 1) for r = 2 a1 + a2, read along parallel grid lines.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Df7PttMBQlv/03.jpg" class="lightbox" data-gallery="Df7PttMBQlv" title="Change of coordinates between the oblique frame and Cartesian coordinates. The vector is unchanged."><img src="../figures/instagram/eeanimation-Df7PttMBQlv/03.jpg" class="img-fluid figure-img" alt="Change-of-basis matrix from (u, v) to (x, y) and the inverse formulae."></a></p>
+<figcaption>Change of coordinates between the oblique frame and Cartesian coordinates. The vector is unchanged.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Df7PttMBQlv/04.jpg" class="lightbox" data-gallery="Df7PttMBQlv" title="The Gram matrix of a unit 60-degree basis, and the norm of r = 2 a1 + a2."><img src="../figures/instagram/eeanimation-Df7PttMBQlv/04.jpg" class="img-fluid figure-img" alt="Metric g with off-diagonal 1/2, and the identity r dot s = u transpose g v."></a></p>
+<figcaption>The Gram matrix of a unit 60-degree basis, and the norm of r = 2 a1 + a2.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Df7PttMBQlv/05.jpg" class="lightbox" data-gallery="Df7PttMBQlv" title="Line element and angle from the metric. Orthogonal axes are the special case cos theta = 0."><img src="../figures/instagram/eeanimation-Df7PttMBQlv/05.jpg" class="img-fluid figure-img" alt="ds squared equals du squared plus 2 cos theta du dv plus dv squared."></a></p>
+<figcaption>Line element and angle from the metric. Orthogonal axes are the special case cos theta = 0.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Df7PttMBQlv/06.jpg" class="lightbox" data-gallery="Df7PttMBQlv" title="Reciprocal basis defined by a^i dot a_j = delta^i_j, used to read oblique components."><img src="../figures/instagram/eeanimation-Df7PttMBQlv/06.jpg" class="img-fluid figure-img" alt="Primal vectors a1 and a2 with reciprocal vectors a1 and a2 drawn perpendicular to the other axis."></a></p>
+<figcaption>Reciprocal basis defined by a^i dot a_j = delta^i_j, used to read oblique components.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Df7PttMBQlv/07.jpg" class="lightbox" data-gallery="Df7PttMBQlv" title="Contravariant components (2, 1) and covariant components (5/2, 2) of the same vector."><img src="../figures/instagram/eeanimation-Df7PttMBQlv/07.jpg" class="img-fluid figure-img" alt="Contravariant expansion r = r^i a_i beside covariant components r_i = r dot a_i."></a></p>
+<figcaption>Contravariant components (2, 1) and covariant components (5/2, 2) of the same vector.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Df7PttMBQlv/08.jpg" class="lightbox" data-gallery="Df7PttMBQlv" title="A curved grid whose tangent vectors are not orthogonal once u is positive."><img src="../figures/instagram/eeanimation-Df7PttMBQlv/08.jpg" class="img-fluid figure-img" alt="Vertical lines and parabolas with tangent basis a_u = (1, 2u) and a_v = (0, 1)."></a></p>
+<figcaption>A curved grid whose tangent vectors are not orthogonal once u is positive.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Df7PttMBQlv/09.jpg" class="lightbox" data-gallery="Df7PttMBQlv" title="Gradient along the reciprocal basis, and area sqrt(det g) du dv."><img src="../figures/instagram/eeanimation-Df7PttMBQlv/09.jpg" class="img-fluid figure-img" alt="Gradient of u pointing along the reciprocal vector, and a parallelogram area element."></a></p>
+<figcaption>Gradient along the reciprocal basis, and area sqrt(det g) du dv.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/instagram/eeanimation-Df7PttMBQlv/10.jpg" class="lightbox" data-gallery="Df7PttMBQlv" title="Skew coordinates in a crystal lattice, a sheared mesh, and a finite-element map."><img src="../figures/instagram/eeanimation-Df7PttMBQlv/10.jpg" class="img-fluid figure-img" alt="Hexagonal lattice, sheared mesh, and a unit square mapped to a skew quadrilateral."></a></p>
+<figcaption>Skew coordinates in a crystal lattice, a sheared mesh, and a finite-element map.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-eigen" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="sec-eigen"><span class="header-section-number">5</span> Eigenvalue algorithms</h2>
 <p><span class="math inline">\(A v = \lambda v\)</span> is the decomposition <span class="math inline">\(A = X\Lambda X^{-1}\)</span> when <span class="math inline">\(A\)</span> is diagonalisable. Which <em>algorithm</em> you want depends on whether <span class="math inline">\(A\)</span> is sparse or symmetric, and on whether you need one eigenpair or the whole spectrum. Do not form <span class="math inline">\(\det(A-\lambda I)\)</span> as a numerical primitive.</p>
 <p><a href="https://www.instagram.com/p/Dc8mHiMj7og/">6 September 2026</a>.</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
@@ -577,8 +685,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="sec-table" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="sec-table"><span class="header-section-number">5</span> Factorisations by job</h2>
+<section id="sec-table" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="sec-table"><span class="header-section-number">6</span> Factorisations by job</h2>
 <table class="table">
 <colgroup>
 <col style="width: 31%">
@@ -1226,36 +1334,74 @@ window.Quarto = {
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/galleries/Dc3ckPsD-uA.qmd &gt;}}</span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## Eigenvalue algorithms {#sec-eigen}</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## Free families that are not orthogonal {#sec-oblique}</span></span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>$A v = \lambda v$ is the decomposition $A = X\Lambda X^{-1}$ when $A$</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>is diagonalisable. Which *algorithm* you want depends on whether $A$</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>is sparse or symmetric, and on whether you need one eigenpair or the</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>whole spectrum. Do not form $\det(A-\lambda I)$ as a numerical</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>primitive.</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">6 September 2026</span><span class="co">](https://www.instagram.com/p/Dc8mHiMj7og/)</span>.</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/galleries/Dc8mHiMj7og.qmd &gt;}}</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## Factorisations by job {#sec-table}</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Decomposition <span class="pp">|</span> Shape / hypotheses <span class="pp">|</span> Typical use <span class="pp">|</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------------|--------------------|-------------|</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> LU (with pivoting) <span class="pp">|</span> Square, generic <span class="pp">|</span> Solve $Ax=b$; determinant <span class="pp">|</span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> QR <span class="pp">|</span> Full column rank <span class="pp">|</span> Least squares; orthonormal bases <span class="pp">|</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Cholesky <span class="pp">|</span> Hermitian positive definite <span class="pp">|</span> Fast $Ax=b$; covariance <span class="pp">|</span></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Eigen $A = X\Lambda X^{-1}$ <span class="pp">|</span> Square, diagonalisable <span class="pp">|</span> Powers, linear ODEs $\dot x = Ax$ <span class="pp">|</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Spectral $A = Q\Lambda Q^\top$ <span class="pp">|</span> Symmetric / Hermitian <span class="pp">|</span> Axes of a quadratic form <span class="pp">|</span></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> SVD $A = U\Sigma V^\top$ <span class="pp">|</span> Any <span class="pp">|</span> Rank, condition, PCA, low-rank approx. <span class="pp">|</span></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Polar <span class="pp">|</span> Square, invertible <span class="pp">|</span> Closest rotation times stretch <span class="pp">|</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Schur <span class="pp">|</span> Square <span class="pp">|</span> Numerically stable “eigen” form <span class="pp">|</span></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Jordan <span class="pp">|</span> Square, over $\mathbb C$ <span class="pp">|</span> Theoretical canonical form (unstable) <span class="pp">|</span></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>After you linearise a vector field</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>(<span class="co">[</span><span class="ot">differential equations</span><span class="co">](../dynamics/differential-equations.qmd)</span>),</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>the local picture is $\dot x = Ax$. The eigen- or Schur form of $A$</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>is the dynamical classification.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>A family is **free** when it is linearly independent: the only linear</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>combination that gives zero has every coefficient zero. Orthogonality</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>is a stronger demand. Two vectors can meet at $60^\circ$ and still</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>be a basis. Every point is then</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>\mathbf r = u\,\mathbf a_1 + v\,\mathbf a_2,</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>with unique coordinates $(u,v)$, even though $\mathbf a_1\cdot\mathbf a_2 \neq 0$.</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>What fails is Pythagoras on those coordinates. Lengths and angles</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>need the Gram matrix $g_{ij} = \mathbf a_i\cdot\mathbf a_j$. For a</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>unit basis at angle $\theta$,</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>\mathbf r\cdot\mathbf s = \mathbf u^\top g\mathbf v, \qquad</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>ds^2 = du^2 + 2\cos\theta\,du\,dv + dv^2.</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>The slides’ worked vector $\mathbf r = 2\mathbf a_1 + \mathbf a_2$</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>has squared length $4 + 1 + 2\cdot 2\cdot 1\cdot\cos 60^\circ = 7$,</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>not $4+1$. The reciprocal basis, defined by</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>$\mathbf a^i\cdot\mathbf a_j = \delta^i_j$, is what reads the</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>oblique components back off: $u = \mathbf r\cdot\mathbf a^1$.</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>Contravariant components are the expansion coefficients;</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>covariant components are the dot products with the primal basis.</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>They agree only when $g = I$.</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>Ten stills from</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">EE Animations, 19 November 2026</span><span class="co">](https://www.instagram.com/p/Df7PttMBQlv/)</span>.</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>The caption: independent directions need not meet at $90^\circ$;</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>the geometry is the same once the basis is accounted for.</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/galleries/Df7PttMBQlv.qmd &gt;}}</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="fu">## Eigenvalue algorithms {#sec-eigen}</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>$A v = \lambda v$ is the decomposition $A = X\Lambda X^{-1}$ when $A$</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>is diagonalisable. Which *algorithm* you want depends on whether $A$</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>is sparse or symmetric, and on whether you need one eigenpair or the</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>whole spectrum. Do not form $\det(A-\lambda I)$ as a numerical</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>primitive.</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">6 September 2026</span><span class="co">](https://www.instagram.com/p/Dc8mHiMj7og/)</span>.</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/galleries/Dc8mHiMj7og.qmd &gt;}}</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="fu">## Factorisations by job {#sec-table}</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Decomposition <span class="pp">|</span> Shape / hypotheses <span class="pp">|</span> Typical use <span class="pp">|</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------------|--------------------|-------------|</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> LU (with pivoting) <span class="pp">|</span> Square, generic <span class="pp">|</span> Solve $Ax=b$; determinant <span class="pp">|</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> QR <span class="pp">|</span> Full column rank <span class="pp">|</span> Least squares; orthonormal bases <span class="pp">|</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Cholesky <span class="pp">|</span> Hermitian positive definite <span class="pp">|</span> Fast $Ax=b$; covariance <span class="pp">|</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Eigen $A = X\Lambda X^{-1}$ <span class="pp">|</span> Square, diagonalisable <span class="pp">|</span> Powers, linear ODEs $\dot x = Ax$ <span class="pp">|</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Spectral $A = Q\Lambda Q^\top$ <span class="pp">|</span> Symmetric / Hermitian <span class="pp">|</span> Axes of a quadratic form <span class="pp">|</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> SVD $A = U\Sigma V^\top$ <span class="pp">|</span> Any <span class="pp">|</span> Rank, condition, PCA, low-rank approx. <span class="pp">|</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Polar <span class="pp">|</span> Square, invertible <span class="pp">|</span> Closest rotation times stretch <span class="pp">|</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Schur <span class="pp">|</span> Square <span class="pp">|</span> Numerically stable “eigen” form <span class="pp">|</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Jordan <span class="pp">|</span> Square, over $\mathbb C$ <span class="pp">|</span> Theoretical canonical form (unstable) <span class="pp">|</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>After you linearise a vector field</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>(<span class="co">[</span><span class="ot">differential equations</span><span class="co">](../dynamics/differential-equations.qmd)</span>),</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>the local picture is $\dot x = Ax$. The eigen- or Schur form of $A$</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>is the dynamical classification.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
