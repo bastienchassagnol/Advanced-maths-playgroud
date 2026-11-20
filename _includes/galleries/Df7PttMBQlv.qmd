@@ -1,0 +1,23 @@
+::: {layout-ncol=2}
+
+![Cartesian axes at 90 degrees beside an oblique basis at 60 degrees. A point is still r = u a1 + v a2.](../figures/instagram/eeanimation-Df7PttMBQlv/01.jpg){group="Df7PttMBQlv" fig-alt="Cartesian grid next to an oblique grid at 60 degrees, with r equal to u a1 plus v a2."}
+
+![Oblique coordinates (2, 1) for r = 2 a1 + a2, read along parallel grid lines.](../figures/instagram/eeanimation-Df7PttMBQlv/02.jpg){group="Df7PttMBQlv" fig-alt="Oblique parallelogram with basis a1 = (1, 0) and a2 = (1/2, sqrt(3)/2)."}
+
+![Change of coordinates between the oblique frame and Cartesian coordinates. The vector is unchanged.](../figures/instagram/eeanimation-Df7PttMBQlv/03.jpg){group="Df7PttMBQlv" fig-alt="Change-of-basis matrix from (u, v) to (x, y) and the inverse formulae."}
+
+![The Gram matrix of a unit 60-degree basis, and the norm of r = 2 a1 + a2.](../figures/instagram/eeanimation-Df7PttMBQlv/04.jpg){group="Df7PttMBQlv" fig-alt="Metric g with off-diagonal 1/2, and the identity r dot s = u transpose g v."}
+
+![Line element and angle from the metric. Orthogonal axes are the special case cos theta = 0.](../figures/instagram/eeanimation-Df7PttMBQlv/05.jpg){group="Df7PttMBQlv" fig-alt="ds squared equals du squared plus 2 cos theta du dv plus dv squared."}
+
+![Reciprocal basis defined by a^i dot a_j = delta^i_j, used to read oblique components.](../figures/instagram/eeanimation-Df7PttMBQlv/06.jpg){group="Df7PttMBQlv" fig-alt="Primal vectors a1 and a2 with reciprocal vectors a1 and a2 drawn perpendicular to the other axis."}
+
+![Contravariant components (2, 1) and covariant components (5/2, 2) of the same vector.](../figures/instagram/eeanimation-Df7PttMBQlv/07.jpg){group="Df7PttMBQlv" fig-alt="Contravariant expansion r = r^i a_i beside covariant components r_i = r dot a_i."}
+
+![A curved grid whose tangent vectors are not orthogonal once u is positive.](../figures/instagram/eeanimation-Df7PttMBQlv/08.jpg){group="Df7PttMBQlv" fig-alt="Vertical lines and parabolas with tangent basis a_u = (1, 2u) and a_v = (0, 1)."}
+
+![Gradient along the reciprocal basis, and area sqrt(det g) du dv.](../figures/instagram/eeanimation-Df7PttMBQlv/09.jpg){group="Df7PttMBQlv" fig-alt="Gradient of u pointing along the reciprocal vector, and a parallelogram area element."}
+
+![Skew coordinates in a crystal lattice, a sheared mesh, and a finite-element map.](../figures/instagram/eeanimation-Df7PttMBQlv/10.jpg){group="Df7PttMBQlv" fig-alt="Hexagonal lattice, sheared mesh, and a unit square mapped to a skew quadrilateral."}
+
+:::

@@ -41,6 +41,44 @@ solve $Ax=b$ with a factorisation instead.
 
 {{< include ../_includes/galleries/Dc3ckPsD-uA.qmd >}}
 
+## Free families that are not orthogonal {#sec-oblique}
+
+A family is **free** when it is linearly independent: the only linear
+combination that gives zero has every coefficient zero. Orthogonality
+is a stronger demand. Two vectors can meet at $60^\circ$ and still
+be a basis. Every point is then
+
+$$
+\mathbf r = u\,\mathbf a_1 + v\,\mathbf a_2,
+$$
+
+with unique coordinates $(u,v)$, even though $\mathbf a_1\cdot\mathbf a_2 \neq 0$.
+
+What fails is Pythagoras on those coordinates. Lengths and angles
+need the Gram matrix $g_{ij} = \mathbf a_i\cdot\mathbf a_j$. For a
+unit basis at angle $\theta$,
+
+$$
+\mathbf r\cdot\mathbf s = \mathbf u^\top g\mathbf v, \qquad
+ds^2 = du^2 + 2\cos\theta\,du\,dv + dv^2.
+$$
+
+The slides’ worked vector $\mathbf r = 2\mathbf a_1 + \mathbf a_2$
+has squared length $4 + 1 + 2\cdot 2\cdot 1\cdot\cos 60^\circ = 7$,
+not $4+1$. The reciprocal basis, defined by
+$\mathbf a^i\cdot\mathbf a_j = \delta^i_j$, is what reads the
+oblique components back off: $u = \mathbf r\cdot\mathbf a^1$.
+Contravariant components are the expansion coefficients;
+covariant components are the dot products with the primal basis.
+They agree only when $g = I$.
+
+Ten stills from
+[EE Animations, 19 November 2026](https://www.instagram.com/p/Df7PttMBQlv/).
+The caption: independent directions need not meet at $90^\circ$;
+the geometry is the same once the basis is accounted for.
+
+{{< include ../_includes/galleries/Df7PttMBQlv.qmd >}}
+
 ## Eigenvalue algorithms {#sec-eigen}
 
 $A v = \lambda v$ is the decomposition $A = X\Lambda X^{-1}$ when $A$
